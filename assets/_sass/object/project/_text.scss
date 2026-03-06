@@ -5,25 +5,35 @@
     h2 {
       font-size: 24px;
       font-weight: normal;
-      margin-bottom: 12px;
+      // margin-bottom: 12px;
     }
   }
 
   .text-works {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     margin-bottom: 12px;
 
-    img {
+    .text-hatenablog {
       width: 30px;
+      height: auto;
+    }
+
+    .text-note {
+      width: 22px;
+      height: auto;
+    }
+
+    .text-kakuyomu {
+      width: 25px;
       height: auto;
     }
   }
 
-  .blog-latest-title {
-    margin-bottom: 12px;
-  }
+  // .blog-latest-title {
+  //   margin-bottom: 12px;
+  // }
 
   .blog-latest-status {
     margin-bottom: 12px;
@@ -46,6 +56,8 @@
   }
 
   .blog-latest-link {
+    display: inline-block;
+    width: 200px;
     color: inherit;
     text-decoration: none;
     font-size: 12px;
@@ -69,7 +81,7 @@
     width: 100%;
     margin: 8px 0 0;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1.6;
     opacity: 0.9;
   }
