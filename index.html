@@ -28,9 +28,9 @@
           class="mainvisual"
           autoplay
           muted
-          loop
           playsinline
-          preload="metadata"
+          webkit-playsinline
+          preload="auto"
         >
           <source src="assets/img/mv-back.mp4" type="video/mp4" />
         </video>
@@ -110,8 +110,76 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        const mainvisualVideo = document.querySelector("video.mainvisual");
         const logo = document.querySelector(".maikaanno");
         const audio = document.getElementById("oseji-audio");
+
+        if (mainvisualVideo) {
+          mainvisualVideo.muted = true;
+          mainvisualVideo.defaultMuted = true;
+          mainvisualVideo.preload = "auto";
+
+          const loopStartTime = 0.08;
+          let manualLoopEnabled = false;
+
+          const tryPlayVideo = function () {
+            mainvisualVideo.play().catch(function () {});
+          };
+
+          const enableSeamlessLoop = function () {
+            if (manualLoopEnabled) return;
+            manualLoopEnabled = true;
+
+            mainvisualVideo.addEventListener("timeupdate", function () {
+              if (!Number.isFinite(mainvisualVideo.duration)) return;
+              if (
+                mainvisualVideo.duration - mainvisualVideo.currentTime <=
+                0.03
+              ) {
+                mainvisualVideo.currentTime = loopStartTime;
+                tryPlayVideo();
+              }
+            });
+          };
+
+          const hydrateVideoByBlob = function () {
+            const sourceElement = mainvisualVideo.querySelector("source");
+            const sourceUrl = sourceElement
+              ? sourceElement.src
+              : mainvisualVideo.currentSrc;
+            if (!sourceUrl) return;
+
+            fetch(sourceUrl)
+              .then(function (response) {
+                if (!response.ok) throw new Error("video fetch failed");
+                return response.blob();
+              })
+              .then(function (blob) {
+                const blobUrl = URL.createObjectURL(blob);
+                mainvisualVideo.src = blobUrl;
+                mainvisualVideo.load();
+                enableSeamlessLoop();
+                tryPlayVideo();
+              })
+              .catch(function () {
+                mainvisualVideo.load();
+                enableSeamlessLoop();
+                tryPlayVideo();
+              });
+          };
+
+          hydrateVideoByBlob();
+
+          if (mainvisualVideo.readyState >= 2) {
+            tryPlayVideo();
+          } else {
+            mainvisualVideo.addEventListener("loadeddata", tryPlayVideo, {
+              once: true,
+            });
+          }
+
+          document.addEventListener("click", tryPlayVideo, { once: true });
+        }
 
         if (!logo || !audio) return;
 
