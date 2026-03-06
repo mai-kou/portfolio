@@ -1,135 +1,26 @@
-.media-content {
-  
-  text-align: left;
-
-  h2 {
-    font-size: 16px;
-    font-weight: normal;
-  }
-
-  .instagram-media {
-    width: 200px;
-  }
-}
-
-.music-works-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  width: 100%;
-  gap: 50px 50px;
-  max-width: 1200px;
-  list-style: none;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .music-works {
-  width: 100%;
-  height: auto;
-
   a {
-    position: relative;
     display: block;
 
     img {
       width: 100%;
       height: auto;
-      transition: opacity 0.3s ease;
-    }
-
-    &:hover {
-      img {
-        opacity: 1;
-      }
-
-      .music-overlay {
-        opacity: 1;
-      }
     }
   }
 }
 
-.music-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 15px;
-  font-weight: normal;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  text-align: center;
-}
-
-.music-modal-content {
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #fff;
-  margin: 2.5vh 0;
-  padding: 53px;
-  width: 100%;
-  max-width: 1188px;
-  height: 95vh;
-  max-height: 95vh;
-  position: relative;
-  border-radius: 0;
-  overflow-y: auto;
-}
-
-.music-modal-close {
-  color: #fff;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 35px;
-  font-weight: normal;
-  cursor: pointer;
-  z-index: 1001;
-
-  &:hover,
-  &:focus {
-    color: #999;
-  }
-}
-
-.music-detail {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.music-detail-img {
-  flex: 1;
-  min-width: 300px;
-
-  .main-image {
+.music-works-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     width: 100%;
-    margin-bottom: 20px;
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  }
+    gap: 50px 50px;
+    max-width: 1200px;
+    list-style: none;
 }
 
-.music-detail-text {
-  flex: 1;
-  min-width: 300px;
 
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-  }
-}
