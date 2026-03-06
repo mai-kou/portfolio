@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>maikou</title>
+    <meta name="description" content="portfolio" />
+    <meta name="author" content="SitePoint" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container fv">
+      <!-- ハンバーガーメニュー -->
+      <div class="l-hamburger" id="hamburger-outer"></div>
+      <!-- サイドバー -->
+      <div class="l-sidebar" id="sidebar-outer"></div>
+      <!-- メインビジュアル -->
+      <div class="main">
+        <video
+          class="mainvisual"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source src="assets/img/mv-back.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="mv-logo-right">
+        <img
+          src="assets/img/maikaanno.svg"
+          alt="maika anno"
+          class="maikaanno"
+        />
+      </div>
+      <audio id="jidai-audio" preload="auto">
+        <source src="assets/sounds/Jidai.mp3" type="audio/mpeg" />
+      </audio>
+      <div class="sns">
+        <a
+          href="https://www.instagram.com/maikou804/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="assets/img/sns-Instagram.svg"
+            alt="instagram"
+            class="instagram"
+        /></a>
+        <a
+          href="https://maikou.hateblo.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="assets/img/sns-hatenablog.png"
+            alt="はてなブログ"
+            class="hatenablog"
+        /></a>
+        <a
+          href="https://note.com/maikou1994/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="assets/img/sns-note.svg" alt="note" class="note"
+        /></a>
+        <a
+          href="https://kakuyomu.jp/users/maikou94"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="assets/img/sns-kakuyomu.png"
+            alt="カクヨム"
+            class="kakuyomu"
+        /></a>
+        <a
+          href="https://podcast.example.com/maikou"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="assets/img/sns-podcast.png" alt="Podcast" class="podcast"
+        /></a>
+        <a
+          href="https://www.youtube.com/@tamaranzakarecord"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="assets/img/sns-youtube.png" alt="YouTube" class="youtube"
+        /></a>
+      </div>
+    </div>
+    <!-- jQueryのCDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="assets/js/hamburger.js"></script>
+    <!-- ハンバーガーメニューのインクルード -->
+    <script>
+      $(function () {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+      });
+    </script>
+    <!-- サイドバーのインクルード -->
+    <script>
+      $(function () {
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const logo = document.querySelector(".maikaanno");
+        const audio = document.getElementById("jidai-audio");
+
+        if (!logo || !audio) return;
+
+        logo.addEventListener("click", function () {
+          if (!audio.paused) {
+            audio.pause();
+            audio.currentTime = 0;
+            return;
+          }
+
+          audio.currentTime = 0;
+          audio.play();
+        });
+      });
+    </script>
+  </body>
+</html>

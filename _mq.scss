@@ -1,0 +1,22 @@
+/* Mixins */
+
+@use "sass:map";
+@use '../variable/' as v;
+
+/**
+* メディアクエリの呼び出し
+*
+* レスポンシブ対応のためのメディアクエリを呼び出します。
+* ブレイクポイントは _vars.scss で設定して下さい。
+*
+* 【使用例】
+*	@include g.mq() {
+*		font-size: 18px;
+*	}
+*/
+
+@mixin mq($breakpoint: md) {
+	@media #{map.get( v.$breakpoints, $breakpoint)} {
+		@content;
+	}
+}
