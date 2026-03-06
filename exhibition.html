@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>maikou</title>
+  <meta name="description" content="portfolio">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="style.css?v=20260225">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- ハンバーガーメニュー -->
+    <div class="l-hamburger" id="hamburger-outer">
+    </div>
+    <!-- サイドバー -->
+    <div class="l-sidebar" id="sidebar-outer">
+    </div>
+    <!-- メイン -->
+    <div class="main-wrapper">
+      <ul class="exhibition-works-list">
+        <!-- BUTTERFLY EFFECT -->
+        <li class="">
+          <a href="#" data-exhibition="butterfly-detail" class="exhibition-link">
+            <img src="assets/img/exhibit-be.png" alt="BUTTERFLY EFFECT" class="butterflyeffect-img">
+            <span class="exhibition-overlay">BUTTERFLY EFFECT</span>
+          </a>
+        </li>
+        <!-- 夜と朝のあいだに -->
+        <li>
+          <a href="#" data-exhibition="yorutoasa-detail" class="exhibition-link">
+            <img src="assets/img/exhibit-yorutoasa.png" alt="夜と朝のあいだに">
+            <span class="exhibition-overlay">Yoru to Asa no Aida ni</span>
+          </a>
+        </li>
+        <!-- 卒制 -->
+        <li class="">
+          <a href="#" data-exhibition="sotsusei-detail" class="exhibition-link">
+            <img src="assets/img/exhibit-sotsusei.png" alt="SOTSUSEI" class="sotsusei-img">
+            <span class="exhibition-overlay">Graduation work of Tama Art University</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Exhibition Modal -->
+      <div class="exhibition-modal" id="exhibition-modal">
+        <div class="exhibition-modal-content">
+          <span class="exhibition-modal-close">&times;</span>
+          <div class="exhibition-modal-body">
+            <!-- モーダルの中身がここに表示されます -->
+          </div>
+        </div>
+      </div>
+
+      <!-- BUTTERFLY EFFECT -->
+        <div class="exhibition-detail" id="butterfly-detail" style="display: none;">
+          <h1>BUTTERFLY EFFECT</h1>
+          <p class="date">2023.11.23-12.21</p>
+          <p class="place">at VALLOON STUDIO SHIBUYA</p>
+          <p class="detail">2023年11月から一ヶ月間、渋谷のVALLOON STUDIOにて開催された初の個展。アートソロプロジェクト「SHIROKUMA」名義としての、10代から20代にかけての13年間の制作の記録。</p>
+          <button><a href="https://butterflyeffect2023.com/">official website</a></button>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/IbjmX1oyrxw?si=att6fXG9NvVOanco" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      
+      <!-- 夜と朝のあいだに -->
+      <div class="exhibition-detail" id="yorutoasa-detail" style="display: none;">
+        <h1>夜と朝のあいだに</h1>
+        <p class="date">2023.4.15</p>
+        <p class="place">飯島商店</p>
+        <p class="detail">2023年11月開催このテキストはダミーです〜〜〜〜〜〜〜〜〜〜〜〜＾〜〜〜〜〜〜〜〜〜〜〜〜＾</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_OC2LAO6RUs?si=GGBoqdz33GM21W43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      
+      </div>
+    </div>
+  </div>
+  <!-- jQueryのCDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  
+  <script src="assets/js/hamburger.js"></script>
+  <script src="assets/js/exhibition-modal.js"></script>
+  <!-- ハンバーガーメニューのインクルード -->
+  <script>
+    $(function() {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+    });
+  </script>
+  <!-- サイドバーのインクルード -->
+  <script>
+    $(function() {
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+    });
+</script>
+</body>
+</html>

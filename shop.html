@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>maikou</title>
+    <meta name="description" content="portfolio" />
+    <meta name="author" content="SitePoint" />
+    <link rel="stylesheet" href="style.css?v=20260225" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- ハンバーガーメニュー -->
+      <div class="l-hamburger" id="hamburger-outer"></div>
+      <!-- サイドバー -->
+      <div class="l-sidebar" id="sidebar-outer"></div>
+      <!-- メイン -->
+      <div class="main-wrapper">
+        <ul class="shop-list-wrapper">
+          <li class="shop-list">
+            <a href="https://maikou-a.stores.jp/items/69a15f32f638a10041f0969e" target="_blank">
+              <img
+                src="assets/img/shop-1.png"
+                alt="DREAMY TRASH」Statement Book"
+              />
+              <span class="shop-overlay">DREAMY TRASH」Statement Book</span>
+            </a>
+          </li>
+          <li class="shop-list">
+            <a href="#" data-modal="modal-tsuduru">
+              <img src="assets/img/shop-2.png" alt="Tsuduru Tsudukuru" />
+              <span class="shop-overlay">Tsuduru Tsudukuru</span>
+            </a>
+          </li>
+          <li class="shop-list">
+            <a href="#" data-modal="modal-tsuduru">
+              <img src="assets/img/shop-3.png" alt="Tsuduru Tsudukuru" />
+              <span class="shop-overlay">Tsuduru Tsudukuru</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- jQueryのCDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="assets/js/hamburger.js"></script>
+
+    <!-- ハンバーガーメニューのインクルード -->
+    <script>
+      $(function () {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+      });
+    </script>
+
+    <!-- サイドバーのインクルード -->
+    <script>
+      $(function () {
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>maikou</title>
+  <meta name="description" content="portfolio">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- ハンバーガーメニュー -->
+    <div class="l-hamburger" id="hamburger-outer">
+    </div>
+    <!-- サイドバー -->
+    <div class="l-sidebar" id="sidebar-outer">
+    </div>
+    <!-- 実績リスト -->
+    <div class="main-wrapper">
+      <ul class="model-works-list">
+        <li class="model-works">
+          <a href="">
+            <img src="assets/img/model-1.JPEG" alt="model-works">
+            <span class="model-overlay"></span>
+          </a>
+        </li>
+        <li class="model-works">
+          <a href="">
+            <img src="assets/img/model-2.jpeg" alt="model-works">
+            <span class="model-overlay"></span>
+          </a>
+        </li>
+        <li class="model-works">
+          <a href="">
+            <img src="assets/img/model-3.jpg" alt="model-works">
+            <span class="model-overlay"></span>
+          </a>
+        </li>
+        <li class="model-works">
+          <a href="">
+            <img src="assets/img/model-4.JPG" alt="model-works">
+            <span class="model-overlay"></span>
+          </a>
+        </li>
+        <li class="model-works">
+          <a href="">
+            <img src="assets/img/model-5.JPG" alt="model-works">
+            <span class="model-overlay"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- モーダル -->
+    <div class="modal">
+      <div class="bigimg"><img src="" alt=""></div>
+    </div>
+  </div>
+  </div> 
+  <!-- jQueryのCDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  
+  <script src="assets/js/hamburger.js"></script>
+  <script src="assets/js/modal.js"></script>
+  <!-- ハンバーガーメニューのインクルード -->
+  <script>
+    $(function() {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+    });
+  </script>
+  <!-- サイドバーのインクルード -->
+  <script>
+    $(function() {
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+    });
+  </script>
+</body>
+</html>
+
+
+ 

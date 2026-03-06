@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>maikou</title>
+  <meta name="description" content="portfolio">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- ハンバーガーメニュー -->
+    <div class="l-hamburger" id="hamburger-outer">
+    </div>
+    <!-- サイドバー -->
+    <div class="l-sidebar" id="sidebar-outer">
+    </div>
+    <!-- 実績リスト -->
+    <div class="main-wrapper">
+      <ul class="draw-works-list">
+        <li class="draw-works">
+          <a href="" data-modal-img="assets/img/draw-1-modal.jpg">
+            <img src="assets/img/draw-1.png" alt="draw-works">
+            <span class="draw-overlay"></span>
+          </a>
+        </li>        
+        <li class="draw-works">
+          <a href="" data-modal-img="assets/img/draw-2-modal.png">
+            <img src="assets/img/draw-2.png" alt="draw-works">
+            <span class="draw-overlay"></span>
+          </a>
+        </li>        
+
+        <li class="draw-works">
+          <a href="" data-modal-img="assets/img/draw-4-modal.jpg">
+            <img src="assets/img/draw-4.png" alt="draw-works">
+            <span class="draw-overlay"></span>
+          </a>
+        </li>
+        <li class="draw-works">
+          <a href="" data-modal-img="assets/img/draw-5-modal.jpg">
+            <img src="assets/img/draw-5.png" alt="draw-works">
+            <span class="draw-overlay"></span>
+          </a>
+        </li>
+        <li class="draw-works">
+          <a href="" data-modal-img="assets/img/draw-6-modal.jpg">
+            <img src="assets/img/draw-6.png" alt="draw-works">
+            <span class="draw-overlay"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- モーダル -->
+    <div class="modal">
+      <div class="bigimg"><img src="" alt=""></div>
+    </div>
+  </div>
+  </div> 
+  <!-- jQueryのCDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  
+  <script src="assets/js/hamburger.js"></script>
+  <script src="assets/js/modal.js"></script>
+  <!-- ハンバーガーメニューのインクルード -->
+  <script>
+    $(function() {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+    });
+  </script>
+  <!-- サイドバーのインクルード -->
+  <script>
+    $(function() {
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+    });
+  </script>
+</body>
+</html>

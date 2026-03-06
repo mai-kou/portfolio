@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>maikou</title>
+  <meta name="description" content="portfolio">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- ハンバーガーメニュー -->
+    <div class="l-hamburger" id="hamburger-outer">
+    </div>
+    <!-- サイドバー -->
+    <div class="l-sidebar" id="sidebar-outer">
+    </div>
+    <!-- メイン -->
+    <div class="main-wrapper">
+      <div class="writing-content">
+        <section class="blog-latest" aria-labelledby="blog-latest-title">
+          <div class="text-works">
+            <img src="assets/img/sns-hatenablog.png" alt="">
+            <h2 id="blog-latest-title" class="blog-latest-title">Hatena Blog</h2>
+          </div>
+          <p class="blog-latest-status" id="blog-latest-status">読み込み中...</p>
+          <ul class="blog-latest-list" id="blog-latest-list"></ul>
+        </section>
+        <section class="blog-latest" aria-labelledby="note-latest-title">
+          <div class="text-works">
+            <img src="assets/img/sns-note.svg" alt="">
+            <h2 id="note-latest-title" class="blog-latest-title">note</h2>
+          </div>
+          <p class="blog-latest-status" id="note-latest-status">読み込み中...</p>
+          <ul class="blog-latest-list" id="note-latest-list"></ul>
+        </section>
+        <section class="blog-latest" aria-labelledby="kakuyomu-latest-title">
+          <div class="text-works">
+            <img src="assets/img/sns-kakuyomu.png" alt="">
+            <h2 id="kakuyomu-latest-title" class="blog-latest-title">カクヨム</h2>
+          </div>
+          <p class="blog-latest-status" id="kakuyomu-latest-status">読み込み中...</p>
+          <ul class="blog-latest-list" id="kakuyomu-latest-list"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- jQueryのCDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  
+  <script src="assets/js/hamburger.js"></script>
+  <script>
+    (function() {
+      var maxItems = 3;
+
+      function formatDate(dateText) {
+        var date = new Date(dateText);
+        if (Number.isNaN(date.getTime())) {
+          return '';
+        }
+        return date.toLocaleDateString('ja-JP', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        });
+      }
+
+      function extractExcerpt(rawHtml) {
+        if (!rawHtml) {
+          return '';
+        }
+
+        var temp = document.createElement('div');
+        temp.innerHTML = rawHtml;
+        var text = (temp.textContent || temp.innerText || '').replace(/\s+/g, ' ').trim();
+
+        return text.slice(0, 120) + (text.length > 120 ? '…' : '');
+      }
+
+      function parseRssItems(xml) {
+        var rawItems = Array.prototype.slice.call(xml.querySelectorAll('item'), 0, maxItems);
+
+        return rawItems.map(function(item) {
+          var title = item.querySelector('title');
+          var link = item.querySelector('link');
+          var pubDate = item.querySelector('pubDate');
+          var description = item.querySelector('description');
+          var content = item.querySelector('content\\:encoded');
+          var rawHtml = '';
+
+          if (description && description.textContent) {
+            rawHtml = description.textContent.trim();
+          } else if (content && content.textContent) {
+            rawHtml = content.textContent.trim();
+          }
+
+          if (!title || !link) {
+            return null;
+          }
+
+          return {
+            title: title.textContent.trim(),
+            link: link.textContent.trim(),
+            pubDate: pubDate ? pubDate.textContent.trim() : '',
+            excerpt: extractExcerpt(rawHtml)
+          };
+        }).filter(function(item) {
+          return !!item;
+        });
+      }
+
+      function parseKakuyomuItems(profileHtml) {
+        var nextDataMatch = profileHtml.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
+        if (!nextDataMatch || !nextDataMatch[1]) {
+          throw new Error('Kakuyomu payload not found');
+        }
+
+        var nextData = JSON.parse(nextDataMatch[1]);
+        var apolloState = nextData
+          && nextData.props
+          && nextData.props.pageProps
+          && nextData.props.pageProps.__APOLLO_STATE__;
+
+        if (!apolloState || !apolloState.ROOT_QUERY) {
+          throw new Error('Kakuyomu state not found');
+        }
+
+        var root = apolloState.ROOT_QUERY;
+        var userKey = Object.keys(root).find(function(key) {
+          return key.indexOf('userByScreenName(') === 0;
+        });
+
+        if (!userKey || !root[userKey] || !root[userKey].__ref) {
+          throw new Error('Kakuyomu user not found');
+        }
+
+        var user = apolloState[root[userKey].__ref];
+        if (!user) {
+          throw new Error('Kakuyomu user data missing');
+        }
+
+        var worksKey = Object.keys(user).find(function(key) {
+          return key.indexOf('worksInLastEpisodePublishedOrder(') === 0;
+        });
+
+        if (!worksKey || !user[worksKey] || !Array.isArray(user[worksKey].nodes)) {
+          throw new Error('Kakuyomu works not found');
+        }
+
+        return user[worksKey].nodes.slice(0, maxItems).map(function(node) {
+          var ref = node && node.__ref ? node.__ref : null;
+          var work = ref ? apolloState[ref] : null;
+
+          if (!work || !work.id || !work.title) {
+            return null;
+          }
+
+          return {
+            title: work.title,
+            link: 'https://kakuyomu.jp/works/' + work.id,
+            pubDate: work.lastEpisodePublishedAt || work.publishedAt || '',
+            excerpt: work.catchphrase || ''
+          };
+        }).filter(function(item) {
+          return !!item;
+        });
+      }
+
+      function renderItems(listEl, statusEl, items) {
+        listEl.innerHTML = '';
+
+        if (!items.length) {
+          statusEl.textContent = '記事が見つかりませんでした。';
+          return;
+        }
+
+        statusEl.textContent = '';
+
+        items.forEach(function(item) {
+          var excerptText = item.excerpt || '';
+
+          var li = document.createElement('li');
+          li.className = 'blog-latest-item';
+
+          var anchor = document.createElement('a');
+          anchor.className = 'blog-latest-link';
+          anchor.href = item.link;
+          anchor.target = '_blank';
+          anchor.rel = 'noopener noreferrer';
+          anchor.textContent = item.title;
+
+          var date = document.createElement('span');
+          date.className = 'blog-latest-date';
+          date.textContent = formatDate(item.pubDate || '');
+
+          var excerpt = document.createElement('p');
+          excerpt.className = 'blog-latest-excerpt';
+          excerpt.textContent = excerptText;
+
+          li.appendChild(anchor);
+          li.appendChild(date);
+          if (excerptText) {
+            li.appendChild(excerpt);
+          }
+          listEl.appendChild(li);
+        });
+      }
+
+      function renderError(listEl, statusEl, blogTopUrl) {
+        statusEl.textContent = '取得に失敗しました。';
+        listEl.innerHTML = '';
+
+        var li = document.createElement('li');
+        li.className = 'blog-latest-item';
+
+        var anchor = document.createElement('a');
+        anchor.className = 'blog-latest-link';
+        anchor.href = blogTopUrl;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.textContent = 'ブログを開く';
+
+        li.appendChild(anchor);
+        listEl.appendChild(li);
+      }
+
+      function unwrapProxyText(responseText) {
+        var trimmed = responseText.trim();
+
+        if (trimmed.charAt(0) !== '{') {
+          return responseText;
+        }
+
+        try {
+          var payload = JSON.parse(trimmed);
+          if (payload && typeof payload.contents === 'string') {
+            return payload.contents;
+          }
+        } catch (error) {
+          return responseText;
+        }
+
+        return responseText;
+      }
+
+      function fetchWithFallback(requestUrls, validator) {
+        var lastError;
+
+        return requestUrls.reduce(function(chain, requestUrl) {
+          return chain.catch(function() {
+            return fetch(requestUrl)
+              .then(function(response) {
+                if (!response.ok) {
+                  throw new Error('Failed to fetch source');
+                }
+                return response.text();
+              })
+              .then(function(responseText) {
+                var text = unwrapProxyText(responseText);
+
+                if (validator && !validator(text)) {
+                  throw new Error('Invalid response');
+                }
+
+                return text;
+              })
+              .catch(function(error) {
+                lastError = error;
+                throw error;
+              });
+          });
+        }, Promise.reject(new Error('Start next fallback'))).catch(function() {
+          throw lastError || new Error('Failed to fetch source');
+        });
+      }
+
+      function fetchRss(feedUrl, useProxy) {
+        var requestUrls = useProxy
+          ? [
+              'https://api.allorigins.win/raw?url=' + encodeURIComponent(feedUrl),
+              'https://api.allorigins.win/get?url=' + encodeURIComponent(feedUrl)
+            ]
+          : [feedUrl];
+
+        return fetchWithFallback(requestUrls, function(text) {
+          return text.indexOf('<rss') !== -1;
+        });
+      }
+
+      function fetchKakuyomuProfile(profileUrl) {
+        var requestUrls = [
+          'https://api.allorigins.win/raw?url=' + encodeURIComponent(profileUrl),
+          'https://api.allorigins.win/get?url=' + encodeURIComponent(profileUrl)
+        ];
+
+        return fetchWithFallback(requestUrls, function(text) {
+          return text.indexOf('__NEXT_DATA__') !== -1;
+        });
+      }
+
+      function loadLatestFeed(options) {
+        var listEl = document.getElementById(options.listId);
+        var statusEl = document.getElementById(options.statusId);
+
+        if (!listEl || !statusEl) {
+          return;
+        }
+
+        var loader = options.sourceType === 'kakuyomu'
+          ? fetchKakuyomuProfile(options.feedUrl).then(function(profileHtml) {
+              return parseKakuyomuItems(profileHtml);
+            })
+          : fetchRss(options.feedUrl, options.useProxy).then(function(rssText) {
+              var parser = new DOMParser();
+              var xml = parser.parseFromString(rssText, 'application/xml');
+              var parseError = xml.querySelector('parsererror');
+
+              if (parseError) {
+                throw new Error('Failed to parse RSS');
+              }
+
+              return parseRssItems(xml);
+            });
+
+        loader
+          .then(function(items) {
+            renderItems(listEl, statusEl, items);
+          })
+          .catch(function() {
+            renderError(listEl, statusEl, options.blogTopUrl);
+          });
+      }
+
+      loadLatestFeed({
+        feedUrl: 'https://maikou.hateblo.jp/rss',
+        blogTopUrl: 'https://maikou.hateblo.jp/',
+        listId: 'blog-latest-list',
+        statusId: 'blog-latest-status',
+        useProxy: false,
+        sourceType: 'rss'
+      });
+
+      loadLatestFeed({
+        feedUrl: 'https://note.com/maikou1994/rss',
+        blogTopUrl: 'https://note.com/maikou1994',
+        listId: 'note-latest-list',
+        statusId: 'note-latest-status',
+        useProxy: true,
+        sourceType: 'rss'
+      });
+
+      loadLatestFeed({
+        feedUrl: 'https://kakuyomu.jp/users/maikou94',
+        blogTopUrl: 'https://kakuyomu.jp/users/maikou94',
+        listId: 'kakuyomu-latest-list',
+        statusId: 'kakuyomu-latest-status',
+        useProxy: true,
+        sourceType: 'kakuyomu'
+      });
+    })();
+  </script>
+  <!-- ハンバーガーメニューのインクルード -->
+  <script>
+    $(function() {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+    });
+  </script>
+  <!-- サイドバーのインクルード -->
+  <script>
+    $(function() {
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+    });
+  </script>
+</body>
+</html>

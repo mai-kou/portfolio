@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>maikou</title>
+  <meta name="description" content="monitor">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="style.css?v=20260225">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- ハンバーガーメニュー -->
+    <div class="l-hamburger" id="hamburger-outer">
+    </div>
+    <!-- サイドバー -->
+    <div class="l-sidebar" id="sidebar-outer">
+    </div>
+    <!-- メイン -->
+    <div class="main-wrapper">
+      <div class="about-content">
+        <div class="about-content-text">
+          <p class="text-english"><span>MAIKA ANNO </span>： Born in 1994, Tokyo; based in Kanagawa. In 2010, I began my career with the punk band "Shirokuma Picasso's." A 2019 Graphic Design graduate of Tama Art University, my graduation project under Takuya Onuki received the Outstanding Student Work Award. After working at various design firms, I now balance a career as a Web Designer with an independent art practice spanning music, label management, and writing. In 2023, I held my first solo exhibition, "BUTTERFLY EFFECT," in Shibuya.
+          </p>
+          <p class="text-japanese"><span>案納 舞花 </span>： 1994年東京都生まれ、神奈川県在住。2010年にパンクバンド「白熊ピカソズ」でキャリアを開始。多摩美術大学グラフィックデザイン学科を2019年に卒業。音楽を題材にした卒業制作は大貫卓也教授から年度の優秀作品に選出される。その後様々なデザイン制作会社での勤務を経て、現在はWebデザイナーとしてのキャリアと、音楽制作、レーベル運営、イベント開催、執筆などの多岐にわたるインディペンデントな表現活動とを並行している。2023年にはVALOON STUDIO SHIBUYAにて初の個展「BUTTERFLY EFFECT」を開催。
+          </p>
+          <div class="sns">
+            <a href="https://www.instagram.com/maikou804/" target="_blank" rel="noopener noreferrer"><img src="assets/img/sns-Instagram.svg" alt="instagram" class="instagram"></a>
+            <a href="https://maikou.hateblo.jp/" target="_blank" rel="noopener noreferrer"><img src="assets/img/sns-hatenablog.png" alt="はてなブログ" class="hatenablog"></a>
+            <a href="https://note.com/maikou1994/" target="_blank" rel="noopener noreferrer"><img src="assets/img/sns-note.svg" alt="note" class="note"></a>
+            <a href="https://kakuyomu.jp/users/maikou94" target="_blank" rel="noopener noreferrer"><img src="assets/img/sns-kakuyomu.png" alt="カクヨム" class="kakuyomu"></a>
+            <a href="https://podcast.example.com/maikou" target="_blank" rel="noopener noreferrer"><img src="assets/img/sns-podcast.png" alt="Podcast" class="podcast"></a>
+            <a href="https://www.youtube.com/@tamaranzakarecord" target="_blank" rel="noopener noreferrer"><img src="assets/img/sns-youtube.png" alt="YouTube" class="youtube"></a>
+          </div>
+          <p class="event-list-title">Self-hosted event</p>     
+          <ul class="event-list">
+            <li>2013.6.24 at Club Top's Fujisawa - Shirokuma Picasso's presents 「SHIROKUMATSURI DODONGADON vol.1」</li>
+            <li>2015.3.25 at SHONAN GIGS FUJISAWA Fujisawa - Shirokuma Picasso's presents  「SHIROKUMATSURI DODONGADON vol.2」</li>
+            <li>2016.6.24 at 新宿JAM - Shirokuma Picasso's presents 「SHIROKUMATSURI DODONGADON vol.3」</li>
+            <li>2017.1.14 at 下北沢CAVE BE - 上原俊&Mai-kou Present's 「Heisei Yojohan Gassen」</li>
+            <li>2017.8.7 at 下北沢BASEMENT BAR - Shirokuma Picasso's presents 「SHIROKUMATSURI DODONGADON vol.4」</li>
+            <li>2017.8.15 at 難波BEARS - Akai kurage&Shirokuma picasso's Kansai Tour</li>
+            <li>2017.8.21 at 渋谷Ruby Room - Shirokuma picasso's presents 「BUN!BUN!BUN!」</li>
+            <li>2019.3.15 at 国分寺MORGANA - Mai-kou presents 「Freeter Daisakusen」</li>
+            <li>2019.12.21 at 江ノ島OPPA-LA - Mai-kou presents 「POWER OF MUCSLE」</li>
+            <li>2022.8.15 at 西横浜EL PUENTE - G.A.S presents 「G7」</li>
+            <li>2023.4.15 at 飯島商店 - Mai-kou presents 「夜と朝のあいだに」</li>
+            <li>2023.11.9 at 西横浜EL PUENTE - G presents 「G8」</li>
+            <li>2023.11.18-12.21 at VALLOON STUDIO SHIBUYA - Mai-kou solo exhibition 「BUTTERFLY EFFECT」</li>
+            <li>2024.3.15 下北沢　ナックルチワワ presents 「友達いないけどワンマン」</li>
+            <li>2024.6.1 江ノ島OPPA-LA - Mai-kou presents 「小生30才」</li>
+            <li>2026.1.24 江ノ島OPPA-LA - Mai-kou presents 「IMMORTAL」</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- jQueryのCDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  
+  <script src="assets/js/hamburger.js"></script> 
+  <!-- ハンバーガーメニューのインクルード -->
+  <script>
+    $(function() {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+    });
+  </script>
+  <!-- サイドバーのインクルード -->
+  <script>
+    $(function() {
+      console.log('test')
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+    });
+  </script>   
+</body>
+</html>
