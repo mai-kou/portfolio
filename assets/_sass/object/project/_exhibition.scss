@@ -1,0 +1,198 @@
+.exhibition-works-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4%;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+
+  li {
+    list-style: none;
+    margin-left: 0;
+
+    &::marker {
+      content: "";
+    }
+  }
+}
+
+.exhibition-link {
+  position: relative;
+  display: block;
+}
+
+.butterflyeffect-img {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.exhibition-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-align: center;
+}
+
+.exhibition-link:hover .butterflyeffect-img,
+.exhibition-link:hover img {
+  opacity: 1;
+}
+
+.exhibition-link:hover .exhibition-overlay {
+  opacity: 1;
+}
+
+// Exhibition Modal
+.exhibition-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+}
+
+.exhibition-modal-content {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  margin: 5% auto;
+  padding: 40px;
+  width: 80%;
+  max-width: 900px;
+  position: relative;
+  border-radius: 0;
+}
+
+.exhibition-modal-close {
+  color: #ccc;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+}
+
+.exhibition-modal-body {
+  .exhibition-detail {
+    display: block !important;
+    
+    h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+    
+    .date, .place {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-top: 15px;
+    }
+    
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: 2px solid black;
+      background-color: white;
+      
+      cursor: pointer;
+      
+      a {
+        color: black;
+        font-size: 16px;
+        text-decoration: none;
+      }
+    }
+    
+    iframe {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 100%;
+      height: 400px;
+    }
+  }
+}
+
+// .butterflyeffect {
+//   display: flex;
+//   gap: 4%;
+
+//   .exhibition {
+//     flex: 1;
+//     img {
+//       width: 100%;
+//       height: auto;
+//     } 
+//   }
+
+//   .exhibition-detail {
+//     flex: 2;
+
+//     h1 {
+//       font-size: 45px;
+//       font-weight: normal;
+//       margin-bottom: 10px;
+//       line-height: 1;
+//     }
+
+//     .date, .place {
+//       font-size: 20px;
+//       line-height: 1.5;
+//       margin-top: 0;
+//     }
+
+//     p {
+//       font-size: 14px;
+//       line-height: 2;
+//       margin-top: 10px;
+//     }
+
+//     button {
+//       margin-top: 20px;
+//       padding: 12px;
+//       width: 100%;
+//       max-width: 100%;
+//       border: 2px solid black;
+//       background-color: white;
+//       border-radius: 5px;
+//       margin-bottom: 20px;
+
+//       a {
+//         color: black;
+//         font-size: 16px;
+//       }
+//     }
+
+//     iframe {
+//       margin-top: 20px;
+//       width: 100%;
+//       max-width: 100%;
+//       height: 315px;
+//     }
+//   }

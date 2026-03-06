@@ -1,0 +1,98 @@
+.about-content {
+  display: flex;
+  .about-content-img {
+    flex-shrink: 0;
+    .profile-img {
+      width: 300px;
+      height: auto;
+    }
+  }
+  .about-content-text {
+    .name {
+      font-weight: 100;
+      margin-bottom: 10px;
+    }
+    .text-english {
+      font-size: 13px;
+      line-height: 2;
+      max-width: 600px;
+      margin-bottom: 30px;
+
+      span {
+        font-weight: 700;
+      }
+    }
+    .text-japanese {
+      font-size: 13px;
+      line-height: 2;
+      max-width: 600px;
+      margin-bottom: 20px;
+
+      span {
+        font-weight: 700;
+      }
+    }
+
+    .event-list-title {
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .event-list {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+      li {
+        list-style: none;
+        margin-left: 0;
+        margin-bottom: 5px;
+        font-size: 13px;
+
+        &::marker {
+          content: "";
+        }
+      }
+    }
+    .sns {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin: 60px 0;
+
+      .instagram {
+        width: 20px;
+        height: auto;
+      }
+      .hatenablog {
+        width: 20px;
+        height: auto;
+        position: relative;
+        top: -1px;
+      }
+      .note {
+        width: 15px;
+        height: auto;
+        position: relative;
+        top: -1px;
+      }
+      .kakuyomu {
+        width: 19px;
+        height: auto;
+        position: relative;
+      }
+      .podcast {
+        width: 20px;
+        height: auto;
+        position: relative;
+        top: -1px;
+      }
+      .youtube {
+        width: 22px;
+        height: auto;
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@use "../../global/" as g;
+
+.fv {
+  position: relative;
+
+  .l-sidebar {
+    background: transparent !important;
+    position: absolute;
+    z-index: 2;
+  }
+
+  /* メインビジュアル */
+  .main {
+    flex: 1;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .mainvisual {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .mv-logo-right {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 30;
+
+    .maikaanno {
+      display: block;
+      width: 45px;
+      height: auto;
+    }
+  }
+
+  .sns {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 30px 20px 0;
+
+    .instagram {
+      width: 20px;
+      height: auto;
+    }
+
+    .hatenablog {
+      width: 20px;
+      height: auto;
+      position: relative;
+      top: -1px;
+    }
+
+    .note {
+      width: 15px;
+      height: auto;
+      position: relative;
+      top: -1px;
+    }
+
+    .kakuyomu {
+      width: 19px;
+      height: auto;
+      position: relative;
+    }
+
+    .podcast {
+      width: 20px;
+      height: auto;
+      position: relative;
+      top: -1px;
+    }
+
+    .youtube {
+      width: 22px;
+      height: auto;
+      position: relative;
+      top: -1px;
+    }
+  }
+}

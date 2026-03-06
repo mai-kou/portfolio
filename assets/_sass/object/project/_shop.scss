@@ -1,0 +1,245 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.shop-list {
+  a {
+    position: relative;
+    display: block;
+
+    img {
+      width: 100%;
+      height: auto;
+      transition: opacity 0.3s ease;
+    }
+  }
+}
+
+.shop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 15px;
+  font-weight: normal;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-align: center;
+}
+
+.shop-list a:hover img {
+  opacity: 1;
+}
+
+.shop-list a:hover .shop-overlay {
+  opacity: 1;
+}
+
+.shop-list-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  width: 100%;
+  gap: 50px 50px;
+  max-width: 1200px;
+  list-style: none;
+  // @media screen and (max-width: @sp-large) {
+  //   grid-template-columns: auto;
+  //   gap: 80px;
+  // }
+}
+
+#shopModal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+
+  .shop-modal-body {
+    display: grid;
+  }
+}
+
+.shop-modal-content {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  margin: 2.5vh 0;
+  padding: 53px;
+  width: 100%;
+  max-width: 1188px;
+  height: 95vh;
+  max-height: 95vh;
+  position: relative;
+  border-radius: 0;
+  overflow: auto;
+}
+
+.shop-modal-close {
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 35px;
+  font-weight: 300;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+}
+
+.shop-modal-body {
+  height: 100%;
+
+  .shop-detail {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    height: 100%;
+
+    .shop-detail-img {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .main-image {
+        width: 100%;
+        max-height: calc(95vh - 200px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          max-height: calc(95vh - 200px);
+          object-fit: contain;
+          display: block;
+        }
+      }
+
+      .thumbnail-gallery {
+        display: flex;
+        gap: 0;
+        justify-content: space-between;
+        width: 100%;
+
+        .thumbnail {
+          width: 31.5%;
+          height: auto;
+          aspect-ratio: 16 / 9;
+          object-fit: cover;
+          cursor: pointer;
+          border: 2px solid transparent;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          box-sizing: border-box;
+
+          &:hover {
+            border-color: #fff;
+            opacity: 0.8;
+          }
+
+          &.active {
+            border-color: #fff;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .shop-detail-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+
+      .modal-subtitle {
+        font-size: 14px;
+        color: #ccc;
+        margin-bottom: 15px;
+        font-weight: 300;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-top: 15px;
+      }
+
+      .modal-website-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 8px 14px;
+        border: 1px solid #fff;
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+/* 画像ホバー時 */
+.hover-mask {
+  align-items: center; /* テキストの中央揃え */
+  background: rgba(0, 0, 0, 0.5); /* マスクの色(黒の50%) */
+  bottom: 0;
+  color: #fff; /* テキストの色 */
+  display: flex; /* テキストの中央揃え */
+  height: auto;
+  justify-content: center; /* テキストの中央揃え */
+  left: 0;
+  opacity: 0; /* 最初は透明(非表示) */
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.6s ease; /* ゆっくりopacityのみへ変化させる */
+  width: 100%;
+
+  &:hover {
+    opacity: 1; /* hoverしたら透過しない(表示させる) */
+  }
+
+  p {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+.works-img {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+//モーダル部分
