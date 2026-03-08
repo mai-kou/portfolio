@@ -1,13 +1,21 @@
 .contact-form {
   max-width: 700px;
-  margin: 0 auto;
-  padding: 60px 30px;
+  padding: 10px 30px;
 
-  h1 {
-    font-size: 36px;
+  .contact-english {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.8;
+    letter-spacing: 2px;
+  }
+  .contact-japanese {
+    font-size: 14px;
     font-weight: normal;
     margin-bottom: 50px;
     text-align: left;
+    line-height: 1.8;
     letter-spacing: 2px;
   }
 }
@@ -22,7 +30,7 @@
       margin-bottom: 10px;
       font-weight: normal;
       letter-spacing: 1px;
-      color: #333;
+      color: #fff;
 
       .required {
         color: #d9534f;
@@ -35,7 +43,7 @@
     input[type="email"],
     textarea {
       width: 100%;
-      padding: 14px 16px;
+      padding: 10px 12px;
       font-size: 14px;
       border: 1px solid #e0e0e0;
       border-radius: 0;
@@ -66,8 +74,8 @@
     padding: 16px;
     font-size: 15px;
     color: white;
-    background-color: #333;
-    border: 2px solid #333;
+    background-color: #000;
+    border: 2px solid #fff;
     border-radius: 0;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -76,8 +84,8 @@
     margin-top: 20px;
 
     &:hover {
-      background-color: transparent;
-      color: #333;
+      background-color: #353535;
+      color: #fff;
     }
   }
 }

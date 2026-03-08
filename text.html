@@ -243,54 +243,128 @@
         return responseText;
       }
 
+      function wait(ms) {
+        return new Promise(function(resolve) {
+          setTimeout(resolve, ms);
+        });
+      }
+
+      function fetchTextWithTimeout(url, timeoutMs) {
+        var controller = new AbortController();
+        var timerId = setTimeout(function() {
+          controller.abort();
+        }, timeoutMs);
+
+        return fetch(url, {
+          signal: controller.signal,
+          cache: 'no-store'
+        })
+          .then(function(response) {
+            clearTimeout(timerId);
+
+            if (!response.ok) {
+              throw new Error('Failed to fetch source');
+            }
+
+            return response.text();
+          })
+          .catch(function(error) {
+            clearTimeout(timerId);
+            throw error;
+          });
+      }
+
       function fetchWithFallback(requestUrls, validator) {
+        var maxRetriesPerUrl = 2;
+        var timeoutMs = 10000;
         var lastError;
 
         return requestUrls.reduce(function(chain, requestUrl) {
           return chain.catch(function() {
-            return fetch(requestUrl)
-              .then(function(response) {
-                if (!response.ok) {
-                  throw new Error('Failed to fetch source');
-                }
-                return response.text();
-              })
-              .then(function(responseText) {
-                var text = unwrapProxyText(responseText);
+            var attempt = 0;
 
-                if (validator && !validator(text)) {
-                  throw new Error('Invalid response');
-                }
+            function tryCurrentUrl() {
+              return fetchTextWithTimeout(requestUrl, timeoutMs)
+                .then(function(responseText) {
+                  var text = unwrapProxyText(responseText);
 
-                return text;
-              })
-              .catch(function(error) {
-                lastError = error;
-                throw error;
-              });
+                  if (validator && !validator(text)) {
+                    throw new Error('Invalid response');
+                  }
+
+                  return text;
+                })
+                .catch(function(error) {
+                  lastError = error;
+
+                  if (attempt < maxRetriesPerUrl) {
+                    attempt += 1;
+                    return wait(300 * attempt).then(tryCurrentUrl);
+                  }
+
+                  throw error;
+                });
+            }
+
+            return tryCurrentUrl();
           });
         }, Promise.reject(new Error('Start next fallback'))).catch(function() {
           throw lastError || new Error('Failed to fetch source');
         });
       }
 
+      function cacheKey(options) {
+        return 'feed-cache:' + options.listId;
+      }
+
+      function saveFeedCache(options, items) {
+        try {
+          localStorage.setItem(cacheKey(options), JSON.stringify({
+            updatedAt: Date.now(),
+            items: items
+          }));
+        } catch (error) {}
+      }
+
+      function readFeedCache(options) {
+        try {
+          var raw = localStorage.getItem(cacheKey(options));
+          if (!raw) {
+            return null;
+          }
+
+          var parsed = JSON.parse(raw);
+          if (!parsed || !Array.isArray(parsed.items)) {
+            return null;
+          }
+
+          return parsed;
+        } catch (error) {
+          return null;
+        }
+      }
+
       function fetchRss(feedUrl, useProxy) {
         var requestUrls = useProxy
           ? [
+              'https://corsproxy.io/?' + encodeURIComponent(feedUrl),
               'https://api.allorigins.win/raw?url=' + encodeURIComponent(feedUrl),
-              'https://api.allorigins.win/get?url=' + encodeURIComponent(feedUrl)
+              'https://api.allorigins.win/get?url=' + encodeURIComponent(feedUrl),
+              'https://cors.isomorphic-git.org/' + feedUrl
             ]
           : [feedUrl];
 
         return fetchWithFallback(requestUrls, function(text) {
-          return text.indexOf('<rss') !== -1;
+          return /<(rss|feed)\b/i.test(text);
         });
       }
 
       function fetchKakuyomuProfile(profileUrl) {
         var requestUrls = [
+          'https://corsproxy.io/?' + encodeURIComponent(profileUrl),
           'https://api.allorigins.win/raw?url=' + encodeURIComponent(profileUrl),
-          'https://api.allorigins.win/get?url=' + encodeURIComponent(profileUrl)
+          'https://api.allorigins.win/get?url=' + encodeURIComponent(profileUrl),
+          'https://cors.isomorphic-git.org/' + profileUrl
         ];
 
         return fetchWithFallback(requestUrls, function(text) {
@@ -324,9 +398,18 @@
 
         loader
           .then(function(items) {
+            saveFeedCache(options, items);
             renderItems(listEl, statusEl, items);
           })
           .catch(function() {
+            var cached = readFeedCache(options);
+
+            if (cached && cached.items && cached.items.length) {
+              renderItems(listEl, statusEl, cached.items);
+              statusEl.textContent = '取得に失敗したため、保存済みデータを表示しています。';
+              return;
+            }
+
             renderError(listEl, statusEl, options.blogTopUrl);
           });
       }

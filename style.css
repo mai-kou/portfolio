@@ -781,16 +781,48 @@ nav.globalMenu.active ul li a {
   top: -1px;
 }
 
+.info-content-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+.info-content-list .info-date {
+  font-size: 12px;
+  color: #ccc;
+  width: 80px;
+}
+.info-content-list .info-text {
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+.info-content-list .info-text a {
+  color: #fff;
+  text-decoration: none;
+}
+.info-content-list .info-text a:hover {
+  text-decoration: underline;
+}
+
 .contact-form {
   max-width: 700px;
-  margin: 0 auto;
-  padding: 60px 30px;
+  padding: 10px 30px;
 }
-.contact-form h1 {
-  font-size: 36px;
+.contact-form .contact-english {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  text-align: left;
+  line-height: 1.8;
+  letter-spacing: 2px;
+}
+.contact-form .contact-japanese {
+  font-size: 14px;
   font-weight: normal;
   margin-bottom: 50px;
   text-align: left;
+  line-height: 1.8;
   letter-spacing: 2px;
 }
 
@@ -803,7 +835,7 @@ nav.globalMenu.active ul li a {
   margin-bottom: 10px;
   font-weight: normal;
   letter-spacing: 1px;
-  color: #333;
+  color: #fff;
 }
 .form-container .form-group label .required {
   color: #d9534f;
@@ -814,7 +846,7 @@ nav.globalMenu.active ul li a {
 .form-container .form-group input[type=email],
 .form-container .form-group textarea {
   width: 100%;
-  padding: 14px 16px;
+  padding: 10px 12px;
   font-size: 14px;
   border: 1px solid #e0e0e0;
   border-radius: 0;
@@ -844,8 +876,8 @@ nav.globalMenu.active ul li a {
   padding: 16px;
   font-size: 15px;
   color: white;
-  background-color: #333;
-  border: 2px solid #333;
+  background-color: #000;
+  border: 2px solid #fff;
   border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -854,8 +886,8 @@ nav.globalMenu.active ul li a {
   margin-top: 20px;
 }
 .form-container .submit-btn:hover {
-  background-color: transparent;
-  color: #333;
+  background-color: #353535;
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {
@@ -1526,7 +1558,7 @@ img {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 12px;
+  margin: 12px 0;
 }
 .writing-content .text-works .text-hatenablog {
   width: 30px;

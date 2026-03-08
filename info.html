@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>maikou</title>
+    <meta name="description" content="monitor" />
+    <meta name="author" content="SitePoint" />
+    <link rel="stylesheet" href="style.css?v=20260225" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- ハンバーガーメニュー -->
+      <div class="l-hamburger" id="hamburger-outer"></div>
+      <!-- サイドバー -->
+      <div class="l-sidebar" id="sidebar-outer"></div>
+      <!-- メイン -->
+      <div class="main-wrapper">
+        <ul class="info-content">
+          <li class="info-content-list">
+            <p class="info-date">2026.1.15</p>
+            <p class="info-text">
+              <a
+                href="https://note.com/shiburadi/n/n67a3fc469608?sub_rt=share_pw"
+                target="_blank"
+                rel="noopener noreferrer"
+                >渋谷のラジオ「渋谷のニジ
+                カルチャーストリート」にゲスト出演しました</a
+              >
+            </p>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2026.1.5</p>
+            <p class="info-text">
+              <a
+                href="https://indiegrab.jp/news/178534/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >indiegrabに主催「IMMORTAL」のイベント情報が掲載されました</a
+              >
+            </p>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2025.8.2</p>
+            <p class="info-text">
+              <a
+                href="https://youtu.be/um-a0N-GyoE?si=hJVXD6Ot85BpGKH4"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Youtube番組「オフの細道」S3第9回にゲスト出演しました</a
+              >
+            </p>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2023.10.21</p>
+            <p class="info-text">
+              <a
+                href="https://indiegrab.jp/news/145145/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >indiegrabに個展「BUTTERFLY EFFECT」の開催情報が掲載されました</a
+              >
+            </p>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2023.2.12</p>
+            <p class="info-text">
+              <a
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
+                >片岡フグリのニューアルバム「JuNan」にコメントを寄稿しました</a
+              >
+            </p>
+          </li>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2022.9.12</p>
+            <p class="info-text">
+              <a
+                href="https://x.com/Bessatsu_champ/status/1569131721576312832?s=20"
+                target="_blank"
+                rel="noopener noreferrer"
+                >別冊少年チャンピオン10月号「掟ポルシェの死ぬ気！全力音楽塾」にインタビューが掲載されました</a
+              >
+            </p>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2018.10.15</p>
+            <p class="info-text">
+              <a
+                href="https://storywriter.tokyo/2022/09/05/5784/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >StorywriterにSHIROKUMAのリリース情報が掲載されました</a
+              >
+            </p>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2019.4.26</p>
+            <p class="info-text">
+              <a
+                href="https://diskunion.net/punk/ct/detail/1007896573?srsltid=AfmBOop9Hkn_9a3HVdPbzImE9ULbGAZhaTHnz7E35_tf9GmQQ9AM_8A2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >EL ZINE vol.36にインタビュー記事が掲載されました</a
+              >
+            </p>
+          </li>
+          <li class="info-content-list">
+            <p class="info-date">2018.10.15</p>
+            <p class="info-text">
+              <a
+                href="https://natalie.mu/music/news/303851"
+                target="_blank"
+                rel="noopener noreferrer"
+                >音楽ナタリーにリリース情報が掲載されました</a
+              >
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- jQueryのCDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="assets/js/hamburger.js"></script>
+    <!-- ハンバーガーメニューのインクルード -->
+    <script>
+      $(function () {
+        $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
+      });
+    </script>
+    <!-- サイドバーのインクルード -->
+    <script>
+      $(function () {
+        console.log("test");
+        $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
+      });
+    </script>
+  </body>
+</html>
