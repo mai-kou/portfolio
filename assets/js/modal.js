@@ -6,8 +6,21 @@ const shootingImageList = $(".shooting-works-list a[data-modal-img]")
 
 let currentShootingIndex = -1;
 
+function applyLandscapeScale(imgEl) {
+  var img = imgEl[0];
+  if (img.naturalWidth > img.naturalHeight) {
+    imgEl.css({ transform: "scale(0.8)", "transform-origin": "center" });
+  } else {
+    imgEl.css({ transform: "", "transform-origin": "" });
+  }
+}
+
 function showModalImage(imageSrc) {
-  $(".bigimg").children().attr("src", imageSrc);
+  var imgEl = $(".bigimg").children();
+  imgEl.attr("src", imageSrc).on("load", function () {
+    applyLandscapeScale(imgEl);
+  });
+  if (imgEl[0].complete) applyLandscapeScale(imgEl);
   $(".modal").css("display", "flex").hide().fadeIn();
   $("body,html").css("overflow-y", "hidden");
 }
@@ -20,7 +33,11 @@ function showShootingImageAt(index) {
   const normalizedIndex =
     (index + shootingImageList.length) % shootingImageList.length;
   currentShootingIndex = normalizedIndex;
-  $(".bigimg").children().attr("src", shootingImageList[currentShootingIndex]);
+  var imgEl = $(".bigimg").children();
+  imgEl.attr("src", shootingImageList[currentShootingIndex]).off("load").on("load", function () {
+    applyLandscapeScale(imgEl);
+  });
+  if (imgEl[0].complete) applyLandscapeScale(imgEl);
 
   if ($(".modal").is(":hidden")) {
     $(".modal").css("display", "flex");

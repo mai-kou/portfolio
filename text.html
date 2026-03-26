@@ -380,6 +380,11 @@
           return;
         }
 
+        var cached = readFeedCache(options);
+        if (cached && cached.items && cached.items.length) {
+          renderItems(listEl, statusEl, cached.items);
+        }
+
         var loader = options.sourceType === 'kakuyomu'
           ? fetchKakuyomuProfile(options.feedUrl).then(function(profileHtml) {
               return parseKakuyomuItems(profileHtml);
@@ -402,10 +407,7 @@
             renderItems(listEl, statusEl, items);
           })
           .catch(function() {
-            var cached = readFeedCache(options);
-
             if (cached && cached.items && cached.items.length) {
-              renderItems(listEl, statusEl, cached.items);
               statusEl.textContent = '取得に失敗したため、保存済みデータを表示しています。';
               return;
             }

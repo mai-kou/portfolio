@@ -70,12 +70,22 @@ window.playSidebarAndGo = function (event, linkElement) {
       return;
     }
     window.location.href = href;
-  }, 450);
+  }, 200);
 
   return false;
 };
 
 document.addEventListener('click', (event) => {
+  // ハンバーガーボタンのトグル
+  const hamburgerBtn = event.target.closest('#hamburger-btn');
+  if (hamburgerBtn) {
+    hamburgerBtn.classList.toggle('is-active');
+    const nav = document.querySelector('.l-sidebar .l-sidebar__nav');
+    if (nav) nav.classList.toggle('is-open');
+    return;
+  }
+
+  // サイドバーリンクのクリック
   const sidebarLink = event.target.closest(
     '#sidebar-inner .l-sidebar-menu a, #sidebar-outer .l-sidebar-menu a, .l-sidebar .l-sidebar-menu a'
   );
@@ -83,6 +93,12 @@ document.addEventListener('click', (event) => {
   if (!sidebarLink) {
     return;
   }
+
+  // メニューを閉じてから遷移
+  const btn = document.querySelector('#hamburger-btn');
+  const nav = document.querySelector('.l-sidebar .l-sidebar__nav');
+  if (btn) btn.classList.remove('is-active');
+  if (nav) nav.classList.remove('is-open');
 
   window.playSidebarAndGo(event, sidebarLink);
 });

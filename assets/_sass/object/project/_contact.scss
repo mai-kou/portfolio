@@ -1,6 +1,6 @@
 .contact-form {
   max-width: 700px;
-  padding: 10px 30px;
+  padding: 0 30px;
 
   .contact-english {
     font-size: 14px;
@@ -87,6 +87,45 @@
       background-color: #353535;
       color: #fff;
     }
+  }
+}
+
+.contact-confirm {
+  margin-top: 30px;
+  border: 1px solid #fff;
+  padding: 20px;
+
+  .contact-confirm-title {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .contact-confirm-list {
+    margin: 0;
+  }
+
+  .contact-confirm-item {
+    margin-bottom: 14px;
+
+    dt {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    dd {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+  }
+
+  .contact-confirm-actions {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
   }
 }
 

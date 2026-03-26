@@ -1,66 +1,181 @@
 <!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>maikou</title>
-  <meta name="description" content="portfolio">
-  <meta name="author" content="SitePoint">
-  <link rel="stylesheet" href="style.css?v=20260225">
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <!-- ハンバーガーメニュー -->
-    <div class="l-hamburger" id="hamburger-outer">
-    </div>
-    <!-- サイドバー -->
-    <div class="l-sidebar" id="sidebar-outer">
-    </div>
-    <!-- メイン -->
-    <div class="main-wrapper">
-      <div class="contact-form">
-        <p class="contact-english">For inquiries regarding work requests, event offers, etc., please use the form below. We usually respond within 3 days.</p>
-        <p class="contact-japanese">お仕事のご依頼、イベントのオファー等のお問い合わせは、以下のフォームからお願いいたします。通常3日以内にご返信いたします。</p>
-        <form action="" method="post" class="form-container">
-          <div class="form-group">
-            <label for="name">Name(お名前) <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required>
+  <head>
+    <meta charset="utf-8" />
+    <title>maikou</title>
+    <meta name="description" content="portfolio" />
+    <meta name="author" content="SitePoint" />
+    <link rel="stylesheet" href="style.css?v=20260225" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- ハンバーガーメニュー -->
+      <div class="l-hamburger" id="hamburger-outer"></div>
+      <!-- サイドバー -->
+      <div class="l-sidebar" id="sidebar-outer"></div>
+      <!-- メイン -->
+      <div class="main-wrapper">
+        <div class="contact-form">
+          <p class="contact-english">
+            For inquiries regarding work requests, event offers, etc., please
+            use the form below. I usually respond within 3 days.
+          </p>
+          <p class="contact-japanese">
+            お仕事のご依頼、イベントのオファー等のお問い合わせは、以下のフォームからお願いいたします。通常3日以内にご返信いたします。
+          </p>
+          <form
+            action="https://formsubmit.co/hulawainudayo@gmail.com"
+            method="post"
+            class="form-container"
+            id="contact-form"
+          >
+            <div class="form-group">
+              <label for="name"
+                >Name(お名前) <span class="required">*</span></label
+              >
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email"
+                >Email(メールアドレス) <span class="required">*</span></label
+              >
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject(件名)</label>
+              <input type="text" id="subject" name="subject" />
+            </div>
+
+            <div class="form-group">
+              <label for="message"
+                >Message(メッセージ) <span class="required">*</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="8"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Confirm your entries(入力内容を確認する)
+            </button>
+          </form>
+
+          <div class="contact-confirm" id="contact-confirm" hidden>
+            <p class="contact-confirm-title">
+              Confirm your entries(入力内容の確認)
+            </p>
+            <dl class="contact-confirm-list">
+              <div class="contact-confirm-item">
+                <dt>Name(お名前)</dt>
+                <dd id="confirm-name"></dd>
+              </div>
+              <div class="contact-confirm-item">
+                <dt>Email(メールアドレス)</dt>
+                <dd id="confirm-email"></dd>
+              </div>
+              <div class="contact-confirm-item">
+                <dt>Subject(件名)</dt>
+                <dd id="confirm-subject"></dd>
+              </div>
+              <div class="contact-confirm-item">
+                <dt>Message(メッセージ)</dt>
+                <dd id="confirm-message"></dd>
+              </div>
+            </dl>
+
+            <div class="contact-confirm-actions">
+              <button type="button" class="submit-btn" id="contact-edit-btn">
+                修正する
+              </button>
+              <button type="button" class="submit-btn" id="contact-send-btn">
+                この内容で送信する
+              </button>
+            </div>
           </div>
-          
-          <div class="form-group">
-            <label for="email">Email(メールアドレス) <span class="required">*</span></label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="subject">Subject(件名)</label>
-            <input type="text" id="subject" name="subject">
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Message(メッセージ) <span class="required">*</span></label>
-            <textarea id="message" name="message" rows="8" required></textarea>
-          </div>
-          
-          <button type="submit" class="submit-btn">SEND</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- jQueryのCDN -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  
-  <script src="assets/js/hamburger.js"></script>
-  <!-- ハンバーガーメニューのインクルード -->
-  <script>
-    $(function() {
+    <!-- jQueryのCDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="assets/js/hamburger.js"></script>
+    <!-- ハンバーガーメニューのインクルード -->
+    <script>
+      $(function () {
         $("#hamburger-outer").load("/hamburger.html #hamburger-inner");
-    });
-  </script>
-  <!-- サイドバーのインクルード -->
-  <script>
-    $(function() {
+      });
+    </script>
+    <!-- サイドバーのインクルード -->
+    <script>
+      $(function () {
         $("#sidebar-outer").load("/sidebar.html #sidebar-inner");
-    });
-  </script>
-</body>
+      });
+    </script>
+    <script>
+      (function () {
+        var form = document.getElementById("contact-form");
+        var confirmBox = document.getElementById("contact-confirm");
+        var editButton = document.getElementById("contact-edit-btn");
+        var sendButton = document.getElementById("contact-send-btn");
+
+        if (!form || !confirmBox || !editButton || !sendButton) {
+          return;
+        }
+
+        var fields = {
+          name: document.getElementById("name"),
+          email: document.getElementById("email"),
+          subject: document.getElementById("subject"),
+          message: document.getElementById("message"),
+        };
+
+        var confirms = {
+          name: document.getElementById("confirm-name"),
+          email: document.getElementById("confirm-email"),
+          subject: document.getElementById("confirm-subject"),
+          message: document.getElementById("confirm-message"),
+        };
+
+        function setConfirmValues() {
+          confirms.name.textContent = fields.name.value.trim() || "-";
+          confirms.email.textContent = fields.email.value.trim() || "-";
+          confirms.subject.textContent = fields.subject.value.trim() || "-";
+          confirms.message.textContent = fields.message.value.trim() || "-";
+        }
+
+        form.addEventListener("submit", function (event) {
+          if (form.dataset.confirmed === "true") {
+            return;
+          }
+
+          event.preventDefault();
+
+          if (!form.reportValidity()) {
+            return;
+          }
+
+          setConfirmValues();
+          confirmBox.hidden = false;
+          confirmBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        editButton.addEventListener("click", function () {
+          confirmBox.hidden = true;
+        });
+
+        sendButton.addEventListener("click", function () {
+          form.dataset.confirmed = "true";
+          form.requestSubmit();
+        });
+      })();
+    </script>
+  </body>
 </html>

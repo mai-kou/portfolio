@@ -1,20 +1,8 @@
 @use '../global/' as g;
 
-/* ハンバーガーボタン */
+/* ハンバーガーボタン（サイドバーがトップバーに置き換わるため常に非表示） */
 .l-hamburger {
-  display: block;
-  position: fixed;
-  z-index : 3;
-  right : 13px;
-  top   : 12px;
-  width : 42px;
-  height: 42px;
-  cursor: pointer;
-  text-align: center;
-
-  @include g.mq(sm){
-		display: none;
-	}
+  display: none;
 
   span {
     display : block;

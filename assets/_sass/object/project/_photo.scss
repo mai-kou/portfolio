@@ -1,3 +1,5 @@
+@use '../../global/' as g;
+
 img {
   max-width: 100%;
   height: auto;
@@ -43,13 +45,13 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   width: 100%;
-  gap: 50px 50px;
+  gap: 24px;
   max-width: 1200px;
   list-style: none;
-  // @media screen and (max-width: @sp-large) {
-  //   grid-template-columns: auto;
-  //   gap: 80px;
-  // }
+
+  @include g.mq(sm) {
+    gap: 50px;
+  }
 }
 
 .modal {

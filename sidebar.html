@@ -1,9 +1,16 @@
 <!-- サイドバー -->
 <div id="sidebar-inner">
-  <!-- ロゴ -->
-  <a href="index.html" onclick="return playSidebarAndGo(event, this);"
-    ><img src="assets/img/mai-kou.svg" alt="mai-kou" class="l-sidebar-logo"
-  /></a>
+  <!-- ロゴ＋ハンバーガー（モバイル用ラッパー） -->
+  <div class="l-sidebar-top">
+    <a href="index.html" onclick="return playSidebarAndGo(event, this);"
+      ><img src="assets/img/mai-kou.svg" alt="mai-kou" class="l-sidebar-logo"
+    /></a>
+    <button class="l-hamburger-btn" id="hamburger-btn" aria-label="メニューを開閉する">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
   <!-- メニュー -->
   <nav class="l-sidebar__nav">
     <ul class="l-sidebar-menu">
