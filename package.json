@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "build:sass": "sass assets/_sass/style.scss style.css --style=expanded --source-map",
-    "watch:sass": "sass --watch assets/_sass/style.scss:style.css --style=expanded --source-map"
+    "watch:sass": "sass --watch assets/_sass/style.scss:style.css --style=expanded --source-map",
+    "build:sass:prod": "sass assets/_sass/style.scss style.css --style=compressed --no-source-map"
   },
   "devDependencies": {
     "sass": "^1.93.2"

@@ -1450,6 +1450,8 @@ img {
   width: auto;
   height: auto;
   object-fit: contain;
+  transform: scale(0.8);
+  transform-origin: center;
 }
 
 img {
@@ -1474,31 +1476,49 @@ img {
   list-style: none;
 }
 
-.video-works-list {
+.film-works-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
   list-style: none;
 }
 @media (min-width: 415px) {
-  .video-works-list {
+  .film-works-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 36px;
   }
 }
 @media (min-width: 960px) {
-  .video-works-list {
+  .film-works-list {
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
   }
 }
 
-.video-works a {
-  display: block;
+.film-works {
+  position: relative;
 }
-.video-works a img {
+.film-works a {
+  display: block;
+  position: relative;
+}
+.film-works a img {
   width: 100%;
   height: auto;
+  display: block;
+}
+
+.film-webm {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film-thumb {
   display: block;
 }
 

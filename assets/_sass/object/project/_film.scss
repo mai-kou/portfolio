@@ -1,6 +1,6 @@
 @use '../../global/' as g;
 
-.video-works-list {
+.film-works-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -17,9 +17,12 @@
   }
 }
 
-.video-works {
+.film-works {
+  position: relative;
+
   a {
     display: block;
+    position: relative;
 
     img {
       width: 100%;
@@ -27,4 +30,18 @@
       display: block;
     }
   }
+}
+
+.film-webm {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film-thumb {
+  display: block;
 }
