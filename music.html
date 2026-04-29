@@ -21,61 +21,60 @@
       <div class="main-wrapper">
         <ul class="music-works-list">
           <li class="music-works">
-            <a href="https://big-up.style/VUVMBxj2Cw" target="_blank"
-              ><img
-                src="assets/img/music-ikinobashi.png"
-                data-hover="assets/img/music-ikinobashi-hover.png"
-                data-static="assets/img/music-ikinobashi.png"
-                data-audio="assets/sounds/ikinobashi.mp3"
-                alt="いきのばし"
-                class="music-hover-swap"
-            /></a>
+            <a href="https://big-up.style/VUVMBxj2Cw" target="_blank" data-audio="assets/sounds/music-ikinobashi.mp3">
+              <div class="music-item">
+                <img class="music-disk-img" src="assets/img/music-ikinobashi-disk.png" alt="">
+                <img class="music-cover-img" src="assets/img/music-ikinobashi.png" alt="いきのばし">
+              </div>
+            </a>
           </li>
           <li class="music-works">
-            <a href="https://big-up.style/KnKlhJFqNZ" target="_blank"
-              ><img
-                src="assets/img/music-sensei25.png"
-                data-hover="assets/img/music-sensei25-hover.png"
-                data-static="assets/img/music-sensei25.png"
-                data-audio="assets/sounds/sensei25.mp3"
-                alt="僕の嫌いな先生"
-                class="music-hover-swap"
-            /></a>
+            <a href="https://big-up.style/7fwcvF0gCH" target="_blank">
+              <div class="music-item">
+                <img class="music-disk-img" src="assets/img/music-dreamy-disk.png" alt="">
+                <img class="music-cover-img" src="assets/img/music-dreamy.png" alt="DREAMY TRASH">
+              </div>
+            </a>
           </li>
           <li class="music-works">
-            <a href="" target="_blank"
-              ><img src="assets/img/music-killjoy.png" alt="KILL JOY"
-            /></a>
+            <a href="" target="_blank">
+              <div class="music-item">
+                <img class="music-disk-img" src="assets/img/music-machina-disk.png" alt="">
+                <img class="music-cover-img" src="assets/img/music-machina.png" alt="MACHINA">
+              </div>
+            </a>
           </li>
           <li class="music-works">
-            <a href="https://big-up.style/7fwcvF0gCH" target="_blank"
-              ><img src="assets/img/music-dreamytrash.png" alt="DREAMY TRASH"
-            /></a>
+            <a href="https://big-up.style/musics/669981" target="_blank">
+              <div class="music-item">
+                <img class="music-disk-img" src="assets/img/music-danchi-disk.png" alt="">
+                <img class="music-cover-img" src="assets/img/music-danchi.png" alt="団地">
+              </div>
+            </a>
           </li>
           <li class="music-works">
-            <a href="" target="_blank"
-              ><img src="assets/img/music-machina.png" alt="MACHINA"
-            /></a>
+            <a href="https://linkco.re/PsF0N4mP?lang=ja" target="_blank">
+              <div class="music-item">
+                <img class="music-disk-img" src="assets/img/music-seishun-disk.png" alt="">
+                <img class="music-cover-img" src="assets/img/music-seishun.png" alt="青春と葬式のあいだ">
+              </div>
+            </a>
           </li>
           <li class="music-works">
-            <a href="https://big-up.style/musics/669981" target="_blank"
-              ><img src="assets/img/music-danchi.png" alt="団地"
-            /></a>
+            <a href="https://linkco.re/qan5UXqB?lang=ja" target="_blank">
+              <div class="music-item">
+                <img class="music-disk-img" src="assets/img/music-sensei-disk.png" alt="">
+                <img class="music-cover-img" src="assets/img/music-sensei.png" alt="僕の嫌いな先生">
+              </div>
+            </a>
           </li>
           <li class="music-works">
-            <a href="https://linkco.re/PsF0N4mP?lang=ja" target="_blank"
-              ><img src="assets/img/music-seishun.png" alt="青春と葬式のあいだ"
-            /></a>
-          </li>
-          <li class="music-works">
-            <a href="https://linkco.re/qan5UXqB?lang=ja" target="_blank"
-              ><img src="assets/img/music-sensei.png" alt="僕の嫌いな先生"
-            /></a>
-          </li>
-          <li class="music-works">
-            <a href="https://big-up.style/b6axyyu92r" target="_blank"
-              ><img src="assets/img/music-kibunwa.png" alt="気分は毎日墓参り"
-            /></a>
+            <a href="https://big-up.style/b6axyyu92r" target="_blank">
+              <div class="music-item">
+                <img class="music-disk-img" src="assets/img/music-kibunwa-disk.png" alt="">
+                <img class="music-cover-img" src="assets/img/music-kibunwa.png" alt="気分は毎日墓参り">
+              </div>
+            </a>
           </li>
         </ul>
       </div>
@@ -85,25 +84,19 @@
     <script src="assets/js/hamburger.js"></script>
     <script>
       $(function () {
-        $(".music-hover-swap")
+        $("a[data-audio]")
           .on("mouseenter", function () {
-            $(this).attr("src", $(this).data("hover"));
-
             const audioSrc = $(this).data("audio");
-            if (audioSrc) {
-              let audio = $(this).data("audioEl");
-              if (!audio) {
-                audio = new Audio(audioSrc);
-                audio.volume = 0.2;
-                $(this).data("audioEl", audio);
-              }
-              audio.currentTime = 0;
-              audio.play().catch(function () {});
+            let audio = $(this).data("audioEl");
+            if (!audio) {
+              audio = new Audio(audioSrc);
+              audio.volume = 0.2;
+              $(this).data("audioEl", audio);
             }
+            audio.currentTime = 0;
+            audio.play().catch(function () {});
           })
           .on("mouseleave", function () {
-            $(this).attr("src", $(this).data("static"));
-
             const audio = $(this).data("audioEl");
             if (audio) {
               audio.pause();
