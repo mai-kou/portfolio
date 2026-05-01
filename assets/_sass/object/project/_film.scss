@@ -23,12 +23,20 @@
   a {
     display: block;
     position: relative;
+    overflow: hidden;
 
     img {
       width: 100%;
       height: auto;
       display: block;
     }
+  }
+}
+
+.film-works--crop {
+  .film-webm {
+    transform: scale(1.3);
+    transform-origin: center center;
   }
 }
 
