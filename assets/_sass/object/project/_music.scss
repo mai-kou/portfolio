@@ -46,6 +46,30 @@ img {
   &:hover .music-disk-img {
     transform: translateX(55%);
   }
+
+  .music-coming-soon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.is-visible {
+      opacity: 1;
+    }
+  }
 }
 
 

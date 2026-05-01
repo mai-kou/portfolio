@@ -39,7 +39,7 @@
         </li>        
         <li class="design-works">
           <a href="#" data-modal="modal-wedding">
-            <img src="assets/img/design/design-wedding-profilecard.png" alt="Wedding reception profile card">
+            <img src="assets/img/design/design-weddingcard.png" alt="Wedding reception profile card">
             <span class="design-overlay">Wedding reception profile card</span>
           </a>
         </li>        
@@ -51,7 +51,7 @@
         </li>        
         <li class="design-works">
           <a href="#" data-modal="modal-boku">
-            <img src="assets/img/design/design-boku.png" alt="僕の嫌いな先生I">
+            <img src="assets/img/design/design-sensei25.png" alt="僕の嫌いな先生I">
             <span class="design-overlay">My Hated Teacher</span>
           </a>
         </li>               
@@ -183,7 +183,7 @@
         </li>
         <li class="design-works">
           <a href="#" data-modal="modal-krispy">
-            <img src="assets/img/design/design-kkd.png" alt="Krispy Kreme DOUGHNUTS JAPAN">
+            <img src="assets/img/design/design-krispy.png" alt="Krispy Kreme DOUGHNUTS JAPAN">
             <span class="design-overlay">Krispy Kreme DOUGHNUTS JAPAN</span>
           </a>
         </li>
@@ -207,7 +207,7 @@
         </li>
         <li class="design-works">
           <a href="#" data-modal="modal-tokyo">
-            <img src="assets/img/design/design-tlmn.png" alt="TOKYO LANDSCAPE ASSET MANAGEMENT">
+            <img src="assets/img/design/design-tlsa.png" alt="TOKYO LANDSCAPE ASSET MANAGEMENT">
             <span class="design-overlay">TOKYO LANDSCAPE ASSET MANAGEMENT</span>
           </a>
         </li>
@@ -350,6 +350,12 @@
           </a>
         </li>
         <li class="design-works">
+          <a href="#" data-modal="modal-soloist">
+            <img src="assets/img/design/design-soloist.png" alt="soloist">
+            <span class="design-overlay">soloist</span>
+          </a>
+        </li>
+        <li class="design-works">
           <a href="#" data-modal="modal-shirokuma2">
             <img src="assets/img/design/design-shirokumatsuri-vol3.png" alt="SHIROKUMATSURI">
             <span class="design-overlay">SHIROKUMATSURI</span>
@@ -436,11 +442,18 @@
           images: ['assets/img/design/design-ttt.png']
         },
         'modal-wedding': {
-          title: 'Wedding reception profile card',
+          title: 'Wedding reception<br>profile card',
           subtitle: 'Wedding reception profile card',
           year: '2026',
           description: 'Flyer for my event.',
-          images: ['assets/img/design/design-wedding-profilecard.png']
+          images: [
+            'assets/img/design/weddingcard-modal-1.jpg',
+            'assets/img/design/weddingcard-modal-2.jpg',
+            'assets/img/design/weddingcard-modal-3.jpg',
+            'assets/img/design/weddingcard-modal-4.jpg',
+            'assets/img/design/weddingcard-modal-5.jpg',
+            'assets/img/design/weddingcard-modal-6.jpg'
+          ]
         },
         'modal-immortal': {
           title: 'IMMORTAL',
@@ -794,7 +807,7 @@
           console.log('Full Data:', data);
           
           // テキスト情報を設定
-          $('#modalTitle').text(data.title);
+          $('#modalTitle').html(data.title);
           $('#modalSubtitle').text(data.subtitle || '');
           $('#modalYear').text(data.year);
           $('#modalDescription').text(data.description);
