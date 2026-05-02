@@ -38,13 +38,13 @@
           </a>
         </li>        
         <li class="design-works">
-          <a href="#" data-modal="modal-wedding">
+          <a href="#" data-modal="modal-weddingcard">
             <img src="assets/img/design/design-weddingcard.png" alt="Wedding reception profile card">
             <span class="design-overlay">Wedding reception profile card</span>
           </a>
         </li>        
         <li class="design-works">
-          <a href="#" data-modal="modal-wedding">
+          <a href="#" data-modal="modal-weddingphoto">
             <img src="assets/img/design/design-wedding-photo.png" alt="Wedding photo">
             <span class="design-overlay">Wedding photo</span>
           </a>
@@ -128,7 +128,7 @@
           </a>
         </li>
         <li class="design-works">
-          <a href="#" data-modal="modal-yoru">
+          <a href="#" data-modal="modal-yoru2">
             <img src="assets/img/design/design-yorutoasa2.png" alt="夜と朝のあいだに">
             <span class="design-overlay">Between night and daybreak</span>
           </a>
@@ -249,12 +249,6 @@
         </li>
         <li class="design-works">
           <a href="#" data-modal="modal-power">
-            <img src="assets/img/design/design-blacklivesmatter.PNG" alt="BLACK LIVES MATTER">
-            <span class="design-overlay">BLACK LIVES MATTER</span>
-          </a>
-        </li>
-        <li class="design-works">
-          <a href="#" data-modal="modal-power">
             <img src="assets/img/design/design-power.png" alt="POWER OF MUCSLE">
             <span class="design-overlay">POWER OF MUCSLE</span>
           </a>
@@ -275,12 +269,6 @@
           <a href="#" data-modal="modal-hunter">
             <img src="assets/img/design/design-hunterhunter.png" alt="HUNTER HUNTER">
             <span class="design-overlay">HUNTER HUNTER</span>
-          </a>
-        </li>
-        <li class="design-works">
-          <a href="#" data-modal="modal-bandai">
-            <img src="assets/img/design/design-bandai.png" alt="BANDAI">
-            <span class="design-overlay">BANDAI</span>
           </a>
         </li>
         <li class="design-works">
@@ -326,7 +314,7 @@
           </a>
         </li>
         <li class="design-works">
-          <a href="#" data-modal="modal-heisei">
+          <a href="#" data-modal="modal-youkai">
             <img src="assets/img/design/design-youkai.png" alt="Heisei 4jouhan gassen">
             <span class="design-overlay">Heisei 4jouhan gassen</span>
           </a>
@@ -338,9 +326,9 @@
           </a>
         </li>
         <li class="design-works">
-          <a href="#" data-modal="modal-hengen">
-            <img src="assets/img/design/design-manmaru.png" alt="HENGEN JIZAI">
-            <span class="design-overlay">HENGEN JIZAI</span>
+          <a href="#" data-modal="modal-manmaru">
+            <img src="assets/img/design/design-manmaru.png" alt="まんまるゴシック">
+            <span class="design-overlay">MANMARU GOTHIC</span>
           </a>
         </li>
         <li class="design-works">
@@ -362,9 +350,9 @@
           </a>
         </li>
         <li class="design-works">
-          <a href="#" data-modal="modal-tamaranzaka">
-            <img src="assets/img/design/design-tamaranzaka-flyer.png" alt="多摩蘭坂RECORD">
-            <span class="design-overlay">多摩蘭坂RECORD</span>
+          <a href="#" data-modal="modal-tamaranzakanite">
+            <img src="assets/img/design/design-tamaranzaka-flyer.png" alt="多摩蘭坂にて">
+            <span class="design-overlay">多摩蘭坂にて</span>
           </a>
         </li>
         <li class="design-works">
@@ -387,13 +375,19 @@
               <div class="main-image">
                 <img id="mainImage" src="" alt="">
               </div>
-              <button type="button" class="design-modal-next" id="designModalNext" aria-label="次の画像"><span>&rsaquo;</span></button>
+              <div class="design-modal-buttons">
+                <button type="button" class="design-modal-prev" id="designModalPrev" aria-label="前の画像"><span>&lsaquo;</span></button>
+                <button type="button" class="design-modal-next" id="designModalNext" aria-label="次の画像"><span>&rsaquo;</span></button>
+              </div>
             </div>
             <div class="design-detail-text">
               <h2 id="modalTitle"></h2>
-              <p id="modalSubtitle" class="modal-subtitle"></p>
-              <p id="modalYear"></p>
+              <div class="modal-meta">
+                <p id="modalSubtitle" class="modal-subtitle"></p>
+                <p id="modalYear"></p>
+              </div>
               <p id="modalDescription"></p>
+              <p id="modalDescription2"></p>
               <a id="modalWebsiteLink" class="modal-website-link" href="#" target="_blank" rel="noopener noreferrer">Web site</a>
             </div>
           </div>
@@ -414,38 +408,35 @@
       // モーダルデータ
       const modalData = {
         'modal-animal-farm': {
-          title: '動物農場',
-          subtitle: 'Animal Farm',
-          year: '2025',
-          description: 'Design work description.',
+          title: '"動物農場" Album jacket',
+          subtitle: 'Client：ナックルチワワ',
+          year: 'Year：2026',
+          description: 'ナックルチワワのEP「動物農場」新装版アルバムのジャケットアートワークを制作しました。',
+          description2: '',
           images: ['assets/img/design/design-animalfarm.png']
         },
         'modal-niji-insomniac': {
-          title: '虹 insomniac',
-          subtitle: 'Niji insomniac',
-          year: '2025',
-          description: 'Design work description.',
+          title: '"虹 insomniac" Album jacket',
+          subtitle: 'Client：23rd summer night',
+          year: 'Year：2026',
+          description: '23rd summer nightの1st single「虹 insomniac」のジャケットアートワークを制作しました。グラフィック素材の撮影も行いました。',
+          description2: '',
           images: ['assets/img/design/design-23rd.png']
         },
-        'modal-lalala': {
-          title: 'ら・ら・ら',
-          subtitle: 'LA・LA・LA',
-          year: '2025',
-          description: 'Design work description.',
-          images: ['assets/img/design/design-lalala.png']
+        'modal-immortal': {
+          title: '"IMMORTAL" Event flyer',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2026',
+          description: '自身の主催ライブイベントの告知フライヤーをデザインしました。',
+          description2: '( Photography：Shun Uehara )',
+          images: ['assets/img/modal/modal-immoiral.png', 'assets/img/modal/modal-immortal-2.png', 'assets/img/modal/modal-immortal-2.png']
         },
-        'modal-TTT': {
-          title: 'The Thinking Time',
-          subtitle: '',
-          year: '2021',
-          description: 'Design work description.',
-          images: ['assets/img/design/design-ttt.png']
-        },
-        'modal-wedding': {
-          title: 'Wedding reception<br>profile card',
-          subtitle: 'Wedding reception profile card',
-          year: '2026',
-          description: 'Flyer for my event.',
+        'modal-weddingcard': {
+          title: 'Wedding profile card',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2025',
+          description: '結婚披露宴で参列者に配布される、新郎新婦のプロフィールカードを制作しました。使用写真のフォトディレクションも行いました。',
+          description2: '( Photography：Mana Hiraki )',
           images: [
             'assets/img/design/weddingcard-modal-1.jpg',
             'assets/img/design/weddingcard-modal-2.jpg',
@@ -455,346 +446,481 @@
             'assets/img/design/weddingcard-modal-6.jpg'
           ]
         },
-        'modal-immortal': {
-          title: 'IMMORTAL',
-          subtitle: 'Event Flyer',
-          year: '2025',
-          description: 'Flyer for my event.',
-          images: ['assets/img/modal/modal-immoiral.png', 'assets/img/modal/modal-immortal-2.png', 'assets/img/modal/modal-immortal-2.png']
+        'modal-weddingphoto': {
+          title: 'Wedding photo',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2025',
+          description: 'ウェディングフォトのアートディレクションを担当しました。',
+          description2: '( Photography：Mana Hiraki )',
+          images: ['assets/img/design/design-wedding-photo.png']
         },
         'modal-boku': {
-          title: '僕の嫌いな先生〜復習(讐)ver〜',
-          subtitle: 'Boku no Kirai na Sensei〜Revenge Ver〜',
-          year: '2025',
-          description: 'Design work description.',
-          images: ['assets/img/design/design-boku.png']
+          title: '"僕の嫌いな先生〜復習(讐)ver〜" Album jacket',
+          subtitle: 'SHIROKUMA',
+          year: 'Year：2025',
+          description: 'SHIROKUMA「僕の嫌いな先生〜復習(讐)ver〜」のジャケットアートワークを制作しました。',
+          description2: '( Photography：Shun Uehara )',
+          images: ['assets/img/design/design-sensei25.png']
+        },
+        'modal-lalala': {
+          title: '「ら・ら・ら」Name card',
+          subtitle: 'Client：特定非営利活動法人ら・ら・ら',
+          year: 'Year：2025',
+          description: '特定非営利活動法人「ら・ら・ら」のスタッフの名刺をデザインしました。',
+          description2: '',
+          images: ['assets/img/design/design-lalala.png']
         },
         'modal-sosei': {
-          title: '小生三十三才 イベントフライヤー',
-          subtitle: 'Shouosei Sanjussan Sai',
-          year: '2024',
-          description: 'Design work description.',
+          title: '"小生三十三才" Event flyer',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2024',
+          description: 'Mai-kou主催ライブイベントの告知フライヤーをデザインしました。',
+          description2: '( Photography：Shun Uehara )',
           images: ['assets/img/design/design-modal-shousei.JPG']
         },
         'modal-be-statement': {
-          title: 'BUTTERFLY EFFECT Statement book',
-          subtitle: '',
-          year: '2023',
-          description: 'Design work description.',
+          title: '"BUTTERFLY EFFECT" Statement book',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2023',
+          description: 'Mai-kou初個展「BUTTERFLY EFFECT」にて会場販売されたオフィシャルステートメントブックのデザインを行いました。',
+          description2: '',
           images: ['assets/img/design/design-be-statement.png']
         },
         'modal-be-exhibited': {
-          title: 'BUTTERFLY EFFECT Exhibited works',
-          subtitle: '',
-          year: '2023',
-          description: 'Design work description.',
+          title: '"BUTTERFLY EFFECT" Exhibited works',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2023',
+          description: 'Mai-kou初個展「BUTTERFLY EFFECT」の展示空間のアートディレクション一式を行いました。',
+          description2: '(Print：FLATLABO / Gyousya)',
           images: ['assets/img/design/design-be-01.png']
         },
         'modal-be-clothing': {
-          title: 'Clothing for "SHIROKUMA"',
-          subtitle: '',
-          year: '2023',
-          description: 'Design work description.',
+          title: '"SHIROKUMA" Apparel',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2023',
+          description: '「SHIROKUMA」のアパレルアイテム一式(キャップ・Tシャツ等)をデザインしました。',
+          description2: '( Photography：Shun Uehara )',
           images: ['assets/img/design/design-be-03.png']
         },
         'modal-be-merch': {
           title: 'Merchandise for "BUTTERFLY EFFECT"',
-          subtitle: '',
-          year: '2023',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-be-merch.png']
         },
         'modal-be-web': {
           title: 'Web site for "BUTTERFLY EFFECT"',
-          subtitle: '',
-          year: '2023',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-be-web.png'],
           website: 'https://butterflyeffect2023.com/'
         },
         'modal-be-dmcard': {
           title: 'Direct message card for "BUTTERFLY EFFECT"',
-          subtitle: '',
-          year: '2023',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-be-02.png']
         },
         'modal-butterfly': {
           title: 'BUTTERFLY EFFECT',
-          subtitle: '',
-          year: '2023',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-be-main.png']
         },
         'modal-g8': {
           title: 'G8',
-          subtitle: '',
-          year: '2023',
+          subtitle: 'Concept：G',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-g8.png']
         },
         'modal-killjoy': {
           title: 'KILL JOY',
-          subtitle: '',
-          year: '2023',
+          subtitle: 'Concept：G',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-killjoy.png']
         },
         'modal-off': {
           title: 'オフの細道 logo design',
-          subtitle: 'Off no Hosomichi',
-          year: '2023',
+          subtitle: 'Client：Nicholas Brothers',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-off.png']
+        },
+        'modal-yoru2': {
+          title: '夜と朝のあいだに',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2023',
+          description: 'Design work description.',
+          description2: '',
+          images: ['assets/img/design/design-yorutoasa2.png']
         },
         'modal-yoru': {
           title: '夜と朝のあいだに',
-          subtitle: 'Yoru to Asa no Aida ni',
-          year: '2023',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2023',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-yorutoasa-modal.png']
         },
         'modal-oldmen': {
           title: 'Old Men at Midnight',
-          subtitle: '',
-          year: '2022',
+          subtitle: 'Client：Old Men at Midnight',
+          year: 'Year：2022',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-oldmen.png']
         },
         'modal-g7': {
           title: 'G7',
-          subtitle: '',
-          year: '2022',
+          subtitle: 'Condept：G',
+          year: 'Year：2022',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-g7.png']
         },
         'modal-blue': {
           title: 'blue',
-          subtitle: '',
-          year: '2021',
+          subtitle: 'Client：blue inc.',
+          year: 'Year：2021',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-blue.png']
         },
         'modal-tsubame': {
           title: 'TSUBAME BEAUTY CLINIC',
-          subtitle: '',
-          year: '2021',
+          subtitle: 'Client：TSUBAME BEAUTY CLINIC',
+          year: 'Year：2021',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-tsubame.png'],
           website: 'http://tsubame-beauty-clinic.jp/'
         },
         'modal-klema': {
           title: 'KLEma draco',
-          subtitle: '',
-          year: '2021',
+          subtitle: 'Client：Ai Sano',
+          year: 'Year：2021',
           description: 'Design work description.',
-          images: ['assets/img/design/design-klema.png']
+          description2: '',
+          images: ['assets/img/design/design-klema.JPG']
+        },
+        'modal-TTT': {
+          title: '「The Thinking Time」Logo design',
+          subtitle: 'Client：The Thinking Time',
+          year: 'Year：2021',
+          description: 'Design work description.',
+          description2: '',
+          images: ['assets/img/design/design-ttt.png']
         },
         'modal-uniqlo': {
-          title: 'UNIQLO',
-          subtitle: '',
-          year: '2021',
-          description: 'Design work description.',
+          title: '"UNIQLO" Anniversary logo',
+          subtitle: 'Client：UNIQLO',
+          year: 'Year：2021',
+          description: '全世界のUNIQLO各国店舗で、店舗ごとに流用及び使用可能な周年ロゴデザインフォーマットのデザインを担当しました。',
+          description2: '( Art director：Tomohiro Kaji )',
           images: ['assets/img/design/design-uniqlo-modal.png']
         },
         'modal-krispy': {
-          title: 'Krispy Kreme DOUGHNUTS JAPAN',
-          subtitle: '',
-          year: '2021',
-          description: 'Design work description.',
-          images: ['assets/img/design/design-krispy.png'],
+          title: '"Krispy Kreme DOUGHNUTS JAPAN" 日本上陸15周年',
+          subtitle: 'Client：Krispy Kreme DOUGHNUTS JAPAN',
+          year: 'Year：2021',
+          description: '「Krispy Kreme Donut」日本上陸15周年ロゴと、ランディングページのデザインを担当しました。',
+          description2: '( Art director：Tomohiro Kaji )',
+          images: ['assets/img/design/design-krispy-modal-1.png', 'assets/img/design/design-krispy-modal-2.png'],
           website: 'https://krispykreme.jp/campaign/15thanniversary/'
         },
         'modal-godiva': {
           title: 'GODIVA',
-          subtitle: '',
-          year: '2021',
+          subtitle: 'Client：GODIVA',
+          year: 'Year：2021',
           description: 'Design work description.',
-          images: ['assets/img/design/design-godiva.png']
+          description2: '',
+          images: ['assets/img/design/design-godiva-modal.png']
         },
         'modal-yan': {
           title: 'Yan Lai Fang',
-          subtitle: '',
-          year: '2021',
+          subtitle: 'Client：Yan Lai Fang',
+          year: 'Year：2021',
           description: 'Design work description.',
-          images: ['assets/img/design/design-yanlaifang.png'],
+          description2: '',
+          images: [
+            'assets/img/design/design-yanlaifang-modal-1.png',
+            'assets/img/design/design-yanlaifang-modal-2.png',
+            'assets/img/design/design-yanlaifang-modal-3.png',
+            'assets/img/design/design-yanlaifang-modal-4.png',
+            'assets/img/design/design-yanlaifang-modal-5.png'
+          ],
           website: 'https://yanlaifang.co.jp/'
         },
         'modal-marufuku': {
           title: '丸福製茶',
-          subtitle: 'Marufuku seicha',
-          year: '2020',
+          subtitle: 'Client：丸福製茶',
+          year: 'Year：2020',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-marufuku-modal.png']
         },
         'modal-tokyo': {
           title: 'TOKYO LANDSCAPE ASSET MANAGEMENT',
-          subtitle: '',
-          year: '2020',
+          subtitle: 'Client：Family Corporation',
+          year: 'Year：2020',
           description: 'Design work description.',
-          images: ['assets/img/design/design-tlmn.png']
+          description2: '',
+          images: [
+            'assets/img/design/design-tlsa-modal-1.png',
+            'assets/img/design/design-tlsa-modal-2.png',
+            'assets/img/design/design-tlsa-modal-3.png'
+          ]
         },
         'modal-kobe': {
           title: '神戸吉兆',
-          subtitle: 'KOBE KITIOU',
-          year: '2020',
+          subtitle: 'Client：神戸吉兆',
+          year: 'Year：2020',
           description: 'Design work description.',
-          images: ['assets/img/design/design-kobekityou.png']
+          description2: '',
+          images: ['assets/img/design/design-kobe-modal-1.png', 'assets/img/design/design-kobe-modal-2.png']
         },
         'modal-danchi': {
           title: '団地',
-          subtitle: 'Danchi',
-          year: '2020',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2020',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-danchi.png']
         },
         'modal-shou': {
           title: '商標権',
-          subtitle: 'SHOU HYOU KEN',
-          year: '2020',
+          subtitle: 'Client：特許庁',
+          year: 'Year：2020',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-shou.png'],
           website: 'https://www.jpo.go.jp/introduction/soshiki/design_keiei/shohyoken/index.html'
         },
         'modal-kouen': {
           title: '公園にはアイデアが足りない',
-          subtitle: 'Kouen niwa idea ga tarinai',
-          year: '2020',
+          subtitle: 'Client：',
+          year: 'Year：2020',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-kouen.png']
         },
         'modal-bstv': {
           title: 'BS TV TOKYO',
-          subtitle: '',
-          year: '2020',
+          subtitle: 'Client：BS東京',
+          year: 'Year：2020',
           description: 'Design work description.',
-          images: ['assets/img/design/design-bstv-modal.png'],
+          description2: '',
+          images: [
+            'assets/img/design/design-bstv-modal-1.png',
+            'assets/img/design/design-bstv-modal-2.png',
+            'assets/img/design/design-bstv-modal-3.png',
+            'assets/img/design/design-bstv-modal-4.png',
+            'assets/img/design/design-bstv-modal-5.png'
+          ],
           website: 'https://www.bs-tvtokyo.co.jp/drama_babanuki/'
         },
         'modal-nisshin': {
           title: '日清 カップニャードル',
-          subtitle: 'NISSHIN',
-          year: '2020',
+          subtitle: 'Client：日清',
+          year: 'Year：2020',
           description: 'Design work description.',
-          images: ['assets/img/design/design-nisshin-modal.png'],
-          website: 'https://x.com/cupnoodle_jp/status/1231043430568079363?s=20'
+          description2: '',
+          images: ['assets/img/design/design-nisshin.png', 'assets/img/design/design-nisshin-modal2.png'],
+          website: 'https://x.com/cupnoodle_jp/status/1231043430568079363?s=20',
+          linkLabel: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
         },
         'modal-power': {
           title: 'POWER OF MUCSLE',
-          subtitle: '',
-          year: '2019',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2019',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-power-modal.JPG']
         },
         'modal-stalin': {
           title: 'THE STALIN イヌイカンレキ！',
-          subtitle: '',
-          year: '2019',
+          subtitle: 'Client：イヌイジュン',
+          year: 'Year：2019',
           description: 'Design work description.',
-          images: ['assets/img/design/design-stalin-modal.jpg']
+          description2: '',
+          images: ['assets/img/design/design-stalin-modal-1.jpg', 'assets/img/design/design-stalin-modal-2.jpg']
         },
         'modal-mandom': {
           title: 'マンダム バリアリペアマスク「私の中のナマケモノ」',
-          subtitle: 'mandom',
-          year: '2019',
+          subtitle: 'Client：マンダム',
+          year: 'Year：2019',
           description: 'Design work description.',
-          images: ['assets/img/design/design-mandom.png']
+          description2: '',
+          images: [
+            'assets/img/design/mandom-modal-1.png',
+            'assets/img/design/mandom-modal-2.gif',
+            'assets/img/design/mandom-modal-3.png',
+            'assets/img/design/mandom-modal-4.gif'
+          ]
         },
         'modal-hunter': {
           title: 'HUNTER HUNTER',
-          subtitle: '',
-          year: '2019',
+          subtitle: 'Client：BANDAI',
+          year: 'Year：2019',
           description: 'Design work description.',
-          images: ['assets/img/design/design-hunterhunter.png']
-        },
-        'modal-bandai': {
-          title: 'Bラッパーストリート',
-          subtitle: 'BANDAI',
-          year: '2019',
-          description: 'Design work description.',
-          images: ['assets/img/design/design-bandai.png']
+          description2: '',
+          images: [
+            'assets/img/design/design-hunter-modal-1.png',
+            'assets/img/design/design-hunter-modal-2.png',
+            'assets/img/design/design-hunter-modal-3.png',
+            'assets/img/design/design-hunter-modal-4.gif'
+          ]
         },
         'modal-tsuduru': {
           title: 'つづる、つづくる',
-          subtitle: 'Tsuduru Tsudukuru',
-          year: '2019',
+          subtitle: 'Client：Yumi Yoshida',
+          year: 'Year：2019',
           description: 'Design work description.',
-          images: ['assets/img/design/design-tsuduru-modal.jpg']
+          description2: '',
+          images: ['assets/img/design/design-tsuduru-modal-1.jpg', 'assets/img/design/design-tsuduru-modal-2.jpg']
         },
         'modal-tau': {
           title: '多摩美術大学 グラフィックデザイン学科 卒業制作「SHIROKUMA」',
-          subtitle: 'TAU Graduation work',
-          year: '2019',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2019',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-tau.png'],
           website: 'https://www.tamabi.ac.jp/works/35791/'
         },
         'modal-shirokuma-namecard': {
-          title: 'Name card for "SHIROKUMA"',
+          title: 'Concept：SHIROKUMA',
           subtitle: 'TAU Graduation work',
-          year: '2019',
+          year: 'Year：2019',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-shirokuma-namecard.png']
         },
         'modal-lolipops': {
-          title: 'Lolipops',
+          title: 'Concept：SHIROKUMA',
           subtitle: 'TAU Graduation work',
-          year: '2019',
+          year: 'Year：2019',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-lolipops.png']
         },
         'modal-shirokuma1': {
           title: 'しろくまつりドドンガドン vol.4',
-          subtitle: 'Shirokumatsuri dodongadon vol.4',
-          year: '2017',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2017',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-shirokumatsuri-vol4.png']
         },
         'modal-bun': {
           title: 'BUN!BUN!BUN!',
-          subtitle: '',
-          year: '2017',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2017',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-bunbun-modal.png']
         },
         'modal-seisyun': {
           title: '青春と葬式のあいだ リリースツアー2017',
-          subtitle: 'Seisyun to Soushiki no Aida Release Tour2017',
-          year: '2017',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2017',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-seisyun.png']
+        },
+        'modal-youkai': {
+          title: 'Concept：SHIROKUMA ',
+          subtitle: 'Heisei 4jouhan gassen',
+          year: 'Year：2016',
+          description: 'Design work description.',
+          description2: '',
+          images: ['assets/img/design/design-youkai.png']
         },
         'modal-heisei': {
           title: '平成四畳半合戦',
-          subtitle: 'Heisei 4jouhan gassen',
-          year: '2016',
+          subtitle: 'Concept：Shun Uehara / Mai-kou',
+          year: 'Year：2016',
           description: 'Design work description.',
-          images: ['assets/img/design/design-heisei-modal.jpg']
+          description2: '',
+          images: ['assets/img/design/design-heisei-modal.png']
+        },
+        'modal-manmaru': {
+          title: 'まんまるゴシック',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2016',
+          description: 'Design work description.',
+          description2: '',
+          images: ['assets/img/design/design-manmaru.png']
         },
         'modal-hengen': {
           title: '変幻自祭',
-          subtitle: 'Hengen jizai',
-          year: '2016',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2016',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-hengen-modal.jpg']
+        },
+        'modal-soloist': {
+          title: 'soloist',
+          subtitle: 'Client：とんぼ',
+          year: '',
+          description: 'Design work description.',
+          description2: '',
+          images: ['assets/img/design/design-soloist.png']
         },
         'modal-shirokuma2': {
           title: 'しろくまつりドドンガドン vol.3',
-          subtitle: 'Shirokumatsuri dodongadon vol.3',
-          year: '2016',
+          subtitle: 'Concept：SHIROKUMA',
+          year: 'Year：2016',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-shirokumatsuri-vol3.png']
+        },
+        'modal-tamaranzakanite': {
+          title: '多摩蘭坂にて',
+          subtitle: 'Concept：Mai-kou',
+          year: '',
+          description: '',
+          description2: '',
+          images: ['assets/img/design/design-tamaranzaka-flyer.png']
         },
         'modal-tamaranzaka': {
           title: '多摩蘭坂RECORD logo design',
-          subtitle: 'Tamaranzaka RECORD',
-          year: '2014',
+          subtitle: 'Concept：Mai-kou',
+          year: 'Year：2014',
           description: 'Design work description.',
+          description2: '',
           images: ['assets/img/design/design-tamaranzaka.png']
         }
       };
       
       // モーダルを開く
+      function updateButtonPosition() {
+        var img = document.getElementById('mainImage');
+        var ratio = img.naturalWidth / img.naturalHeight;
+        var isSquare = ratio >= 0.85 && ratio <= 1.15;
+        if (isSquare) {
+          $('.design-detail-img').addClass('is-square').removeClass('is-landscape');
+        } else if (img.naturalWidth > img.naturalHeight) {
+          $('.design-detail-img').addClass('is-landscape').removeClass('is-square');
+        } else {
+          $('.design-detail-img').removeClass('is-landscape is-square');
+        }
+      }
+
       $('[data-modal]').click(function(e) {
         e.preventDefault();
         const modalId = $(this).data('modal');
@@ -811,9 +937,10 @@
           $('#modalSubtitle').text(data.subtitle || '');
           $('#modalYear').text(data.year);
           $('#modalDescription').text(data.description);
+          $('#modalDescription2').text(data.description2 || '');
 
           if (data.website) {
-            $('#modalWebsiteLink').attr('href', data.website).show();
+            $('#modalWebsiteLink').attr('href', data.website).html(data.linkLabel || 'Web site').show();
           } else {
             $('#modalWebsiteLink').removeAttr('href').hide();
           }
@@ -821,37 +948,44 @@
           // メイン画像を設定
           currentImages = Array.isArray(data.images) ? data.images : [];
           currentImageIndex = 0;
-          $('#mainImage').attr('src', currentImages[currentImageIndex] || '').attr('alt', data.title);
+          var $mainImg = $('#mainImage');
+          $('.design-detail-img').removeClass('is-landscape is-square');
+          $mainImg.off('load.modal').on('load.modal', function() {
+            updateButtonPosition();
+          });
+          $mainImg.attr('src', currentImages[currentImageIndex] || '').attr('alt', data.title);
+          if ($mainImg[0].complete) updateButtonPosition();
           
-          // modal-marufukuの場合は画像を120%拡大し、左側に53pxのマージンを追加
-          if (modalId === 'modal-marufuku') {
-            $('#mainImage').css({
-              'transform': 'scale(1.2)',
-              'margin-left': '53px'
-            });
-            $('.main-image').css('width', '120%');
-          } else {
-            $('#mainImage').css({
-              'transform': 'scale(1)',
-              'margin-left': '0'
-            });
-            $('.main-image').css('width', '100%');
-          }
+          $('#mainImage').css({ 'transform': '', 'margin-left': '0' });
+          $('.main-image').css('width', '');
           
-          $('#designModalNext').toggle(currentImages.length > 1);
+          $('.design-modal-buttons').toggle(currentImages.length > 1);
+          $('.design-modal-content').toggleClass('has-single-image', currentImages.length <= 1);
           
           // モーダルを表示
           $('#designModal').css('display', 'flex').hide().fadeIn();
         }
       });
 
+      function navigateTo(index) {
+        if (!currentImages.length) return;
+        currentImageIndex = (index + currentImages.length) % currentImages.length;
+        var $img = $('#mainImage');
+        $img.off('load.modal').on('load.modal', function() {
+          updateButtonPosition();
+        });
+        $img.attr('src', currentImages[currentImageIndex]);
+        if ($img[0].complete) updateButtonPosition();
+      }
+
+      $('#designModalPrev').click(function(e) {
+        e.stopPropagation();
+        navigateTo(currentImageIndex - 1);
+      });
+
       $('#designModalNext').click(function(e) {
         e.stopPropagation();
-        if (!currentImages.length) {
-          return;
-        }
-        currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-        $('#mainImage').attr('src', currentImages[currentImageIndex]);
+        navigateTo(currentImageIndex + 1);
       });
       
       // モーダルを閉じる

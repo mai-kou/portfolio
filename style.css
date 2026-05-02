@@ -1112,14 +1112,20 @@ img {
   color: #fff;
   border: 1px solid #fff;
   margin: 2.5vh 0;
-  padding: 53px;
+  padding: 53px 53px 45px 53px;
   width: 100%;
   max-width: 1188px;
-  height: 95vh;
-  max-height: 95vh;
+  height: 90vh;
+  max-height: 90vh;
   position: relative;
   border-radius: 0;
   overflow: auto;
+}
+.design-modal-content:has(.design-detail-img.is-landscape) {
+  max-width: 1310px;
+}
+.design-modal-content.has-single-image {
+  padding: 53px;
 }
 
 .design-modal-close {
@@ -1140,7 +1146,7 @@ img {
 }
 .design-modal-body .design-detail {
   display: flex;
-  gap: 30px;
+  gap: 50px;
   align-items: center;
   height: 100%;
 }
@@ -1150,7 +1156,6 @@ img {
   flex-direction: column;
   gap: 20px;
   position: relative;
-  padding-right: 60px;
 }
 .design-modal-body .design-detail .design-detail-img .main-image {
   width: 100%;
@@ -1166,17 +1171,21 @@ img {
   object-fit: contain;
   display: block;
 }
+.design-modal-body .design-detail .design-detail-img .design-modal-buttons {
+  position: static;
+  display: flex;
+  justify-content: center;
+  pointer-events: all;
+}
+.design-modal-body .design-detail .design-detail-img .design-modal-prev,
 .design-modal-body .design-detail .design-detail-img .design-modal-next {
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  transform: translateY(-50%);
+  pointer-events: all;
   width: 44px;
   height: 44px;
-  border: 1px solid #fff;
-  border-radius: 50%;
+  border: none;
+  border-radius: 0;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.35);
+  background: transparent;
   color: #fff;
   font-size: 50px;
   font-weight: 300;
@@ -1189,41 +1198,101 @@ img {
   justify-content: center;
   z-index: 2;
 }
+.design-modal-body .design-detail .design-detail-img .design-modal-prev span,
 .design-modal-body .design-detail .design-detail-img .design-modal-next span {
   display: block;
   transform: translateY(-4px);
 }
+.design-modal-body .design-detail .design-detail-img .design-modal-prev:hover,
 .design-modal-body .design-detail .design-detail-img .design-modal-next:hover {
-  background: rgba(255, 255, 255, 0.15);
+  opacity: 0.6;
+}
+.design-modal-body .design-detail .design-detail-img .design-modal-prev {
+  border-right: 1px solid #fff;
+}
+.design-modal-body .design-detail .design-detail-img:not(.is-landscape):not(.is-square) {
+  flex: 1.1;
+}
+.design-modal-body .design-detail .design-detail-img:not(.is-landscape):not(.is-square) .main-image {
+  max-height: calc(90vh - 162px);
+}
+.design-modal-body .design-detail .design-detail-img:not(.is-landscape):not(.is-square) .main-image img {
+  max-height: calc(90vh - 162px);
+}
+.design-modal-body .design-detail .design-detail-img.is-square .main-image {
+  max-height: calc(90vh - 162px);
+}
+.design-modal-body .design-detail .design-detail-img.is-square .main-image img {
+  max-height: calc(90vh - 162px);
+  transform: scale(0.9);
+}
+.design-modal-body .design-detail .design-detail-img.is-landscape {
+  align-items: center;
+  flex: 1.1;
+}
+.design-modal-body .design-detail .design-detail-img.is-landscape .design-modal-buttons {
+  justify-content: center;
 }
 .design-modal-body .design-detail .design-detail-text {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 0;
 }
 .design-modal-body .design-detail .design-detail-text h2 {
   font-size: 30px;
   margin-bottom: 10px;
-  text-align: center;
+  text-align: left;
+}
+.design-modal-body .design-detail .design-detail-text #modalTitle {
+  margin-bottom: 30px;
+}
+.design-modal-body .design-detail .design-detail-text .modal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 2px solid #fff;
+  padding-left: 15px;
+  margin-top: 0;
+  width: 100%;
+}
+.design-modal-body .design-detail .design-detail-text .modal-meta #modalYear {
+  margin-top: -2px;
 }
 .design-modal-body .design-detail .design-detail-text .modal-subtitle {
   font-size: 14px;
   color: #ccc;
-  margin-bottom: 15px;
-  font-weight: 300;
+  margin: 0;
+  font-weight: bold;
 }
 .design-modal-body .design-detail .design-detail-text p {
   font-size: 14px;
   line-height: 1.8;
   margin-top: 15px;
 }
+.design-modal-body .design-detail .design-detail-text #modalYear {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc;
+  font-weight: bold;
+}
+.design-modal-body .design-detail .design-detail-text #modalDescription {
+  margin-top: 30px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.design-modal-body .design-detail .design-detail-text #modalDescription2 {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.2;
+}
 .design-modal-body .design-detail .design-detail-text .modal-website-link {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 24px;
+  padding: 8px 30px;
   border: 2px solid #fff;
   background-color: #fff;
   color: #000;
