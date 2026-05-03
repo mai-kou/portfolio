@@ -23,21 +23,23 @@ function getCurrentGalleryList() {
   return [];
 }
 
-function applyLandscapeScale(imgEl) {
+function applyScale(imgEl) {
   var img = imgEl[0];
+  var bigimg = imgEl.parent();
   if (img.naturalWidth > img.naturalHeight) {
-    imgEl.css({ transform: "scale(0.8)", "transform-origin": "center" });
+    bigimg.css({ "max-width": "80vw", "max-height": "80vh" });
+    imgEl.css({ "max-width": "80vw", "max-height": "80vh", transform: "", "transform-origin": "" });
   } else {
-    imgEl.css({ transform: "", "transform-origin": "" });
+    bigimg.css({ "max-width": "100vw", "max-height": "100vh" });
+    imgEl.css({ "max-width": "100vw", "max-height": "100vh", transform: "", "transform-origin": "" });
   }
 }
 
 function showModalImage(imageSrc) {
   var imgEl = $(".bigimg").children();
-  imgEl.attr("src", imageSrc).on("load", function () {
-    applyLandscapeScale(imgEl);
-  });
-  if (imgEl[0].complete) applyLandscapeScale(imgEl);
+  imgEl.off("load.scale").on("load.scale", function () { applyScale(imgEl); });
+  imgEl.attr("src", imageSrc);
+  if (imgEl[0].complete) applyScale(imgEl);
   $(".modal").css("display", "flex").hide().fadeIn();
   $("body,html").css("overflow-y", "hidden");
 }
@@ -52,10 +54,9 @@ function showGalleryImageAt(index) {
     (index + imageList.length) % imageList.length;
   currentShootingIndex = normalizedIndex;
   var imgEl = $(".bigimg").children();
-  imgEl.attr("src", imageList[currentShootingIndex]).off("load").on("load", function () {
-    applyLandscapeScale(imgEl);
-  });
-  if (imgEl[0].complete) applyLandscapeScale(imgEl);
+  imgEl.off("load.scale").on("load.scale", function () { applyScale(imgEl); });
+  imgEl.attr("src", imageList[currentShootingIndex]);
+  if (imgEl[0].complete) applyScale(imgEl);
 
   if ($(".modal").is(":hidden")) {
     $(".modal").css("display", "flex");
@@ -95,6 +96,12 @@ $(".modal-prev").click(function (event) {
 $(".modal-next").click(function (event) {
   event.stopPropagation();
   showGalleryImageAt(currentShootingIndex + 1);
+});
+
+$(".modal-back").click(function (event) {
+  event.stopPropagation();
+  $(".modal").fadeOut();
+  $("body,html").css("overflow-y", "visible");
 });
 
 $(".modal").click(function () {

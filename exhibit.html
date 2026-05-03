@@ -22,21 +22,21 @@
         <!-- BUTTERFLY EFFECT -->
         <li class="">
           <a href="#" data-exhibition="butterfly-detail" class="exhibition-link">
-            <img src="assets/img/exhibit/exhibit-be.png" alt="BUTTERFLY EFFECT" class="butterflyeffect-img">
+            <img src="assets/img/exhibit/be.png" alt="BUTTERFLY EFFECT" class="butterflyeffect-img">
             <span class="exhibition-overlay">BUTTERFLY EFFECT</span>
           </a>
         </li>
         <!-- 夜と朝のあいだに -->
         <li>
           <a href="#" data-exhibition="yorutoasa-detail" class="exhibition-link">
-            <img src="assets/img/exhibit/exhibit-yorutoasa.png" alt="夜と朝のあいだに">
+            <img src="assets/img/exhibit/yorutoasa.png" alt="夜と朝のあいだに">
             <span class="exhibition-overlay">Yoru to Asa no Aida ni</span>
           </a>
         </li>
         <!-- 夜と朝のあいだに -->
         <li>
           <a href="#" data-exhibition="sotsusei-detail" class="exhibition-link">
-            <img src="assets/img/exhibit/exhibit-sotsusei.png" alt="卒制展">
+            <img src="assets/img/exhibit/sotsusei.png" alt="卒制展">
             <span class="exhibition-overlay">Sotsusei Exhibition</span>
           </a>
         </li>
@@ -45,7 +45,7 @@
       <!-- Exhibition Modal -->
       <div class="exhibition-modal" id="exhibition-modal">
         <div class="exhibition-modal-content">
-          <span class="exhibition-modal-close">&times;</span>
+          <button class="exhibition-modal-close" aria-label="閉じる"></button>
           <div class="exhibition-modal-body">
             <!-- モーダルの中身がここに表示されます -->
           </div>
@@ -54,23 +54,60 @@
 
       <!-- BUTTERFLY EFFECT -->
         <div class="exhibition-detail" id="butterfly-detail" style="display: none;">
-          <h1>BUTTERFLY EFFECT</h1>
-          <p class="date">2023.11.23-12.21</p>
-          <p class="place">at VALLOON STUDIO SHIBUYA</p>
-          <p class="detail">2023年11月から一ヶ月間、渋谷のVALLOON STUDIOにて開催された初の個展。アートソロプロジェクト「SHIROKUMA」名義としての、10代から20代にかけての13年間の制作の記録。</p>
-          <button><a href="https://butterflyeffect2023.com/" target="_blank" rel="noopener noreferrer">official website</a></button>
+          <h1>Mai-kou as "SHIROKUMA" solo exhibition<br>BUTTERFLY EFFECT</h1>
+          <div class="exhibit-meta">
+            <p class="date">Date：2023.11.22 (Wed) - 12.17 (Sat)</p>
+            <p class="place">Venue：VALLOON STUDIO 渋谷</p>
+          </div>
+          <p class="detail">2023年11月から約1ヶ月間、渋谷の「VALLOON STUDIO」にて初の個展を開催しました。<br>
+            本展はソロ・アートプロジェクト「SHIROKUMA」名義によるもので、10代から20代にかけての13年間にわたる制作アーカイブを公開したものです。<br>
+            展示内容は音源制作から始まり、レコードジャケットのデザイン、写真や映像のディレクション、さらには服飾デザインまで多岐にわたります。<br>
+            会期中には、1ヶ月で延べ300人の方々にご来場いただくことができました。</p>
+          <button><a href="https://butterflyeffect2023.com/" target="_blank" rel="noopener noreferrer">website</a></button>
+          <div class="exhibit-modal-img">
+            <img src="assets/img/exhibit/be-1.jpg" alt="">
+            <img src="assets/img/exhibit/be-2.jpg" alt="">
+            <img src="assets/img/exhibit/be-3.jpg" alt="">
+            <img src="assets/img/exhibit/be-4.jpg" alt="">
+          </div>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/IbjmX1oyrxw?si=att6fXG9NvVOanco" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       
       <!-- 夜と朝のあいだに -->
       <div class="exhibition-detail" id="yorutoasa-detail" style="display: none;">
         <h1>夜と朝のあいだに</h1>
-        <p class="date">2023.4.15</p>
-        <p class="place">飯島商店</p>
-        <p class="detail">2023年11月開催このテキストはダミーです〜〜〜〜〜〜〜〜〜〜〜〜＾〜〜〜〜〜〜〜〜〜〜〜〜＾</p>
+        <div class="exhibit-meta">
+          <p class="date">Date：2023.4.15 (Sat)</p>
+          <p class="place">Venue：飯島商店</p>
+        </div>
+        <p class="detail">横須賀の飯島商店にて、ライブイベントと自身の写真展を同時開催しました。<br>
+          2017年からフィルムカメラで撮影し溜めた写真作品を、複数展示しました。</p>
+        <button><a href="#" target="_blank" rel="noopener noreferrer">website</a></button>
+        <div class="exhibit-modal-img">
+          <img src="assets/img/exhibit/yorutoasa-1.jpg" alt="">
+          <img src="assets/img/exhibit/yorutoasa-2.jpg" alt="">
+        </div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_OC2LAO6RUs?si=GGBoqdz33GM21W43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
 
+      <!-- 卒制 -->
+        <div class="exhibition-detail" id="sotsusei-detail" style="display: none;">
+          <h1>多摩美術大学グラフィックデザイン学科卒業制作展2019「From X」</h1>
+          <div class="exhibit-meta">
+            <p class="date">Date：2019.3.2 (Sat) - 3.3 (Sun)</p>
+            <p class="place">Venue：恵比寿ガーデンプレイス</p>
+          </div>
+          <p class="detail">2019年3月に恵比寿ガーデンプレイスで2日間開催された、多摩美術大学グラフィックデザイン学科の卒業制作展にて、<br>
+            ソロ・アートプロジェクト「SHIROKUMA」としての作品を初めて展示しました。<br>
+            尚、本展示作品は、同年度の「卒業制作優秀作品集」にも選出・掲載されています。</p>
+          <button><a href="https://www.tamabi.ac.jp/works/35791/" target="_blank" rel="noopener noreferrer">website</a></button>
+          <div class="exhibit-modal-img">
+            <img src="assets/img/exhibit/be-1.jpg" alt="">
+            <img src="assets/img/exhibit/be-2.jpg" alt="">
+            <img src="assets/img/exhibit/be-3.jpg" alt="">
+            <img src="assets/img/exhibit/be-4.jpg" alt="">
+          </div>
+        </div>
       
       </div>
     </div>

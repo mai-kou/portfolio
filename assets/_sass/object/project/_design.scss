@@ -100,17 +100,35 @@ img {
 }
 
 .design-modal-close {
-  color: #fff;
   position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 35px;
-  font-weight: 300;
+  right: 24px;
+  top: 20px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
+  font-size: 0;
 
-  &:hover,
-  &:focus {
-    color: #fff;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover {
+    opacity: 0.5;
   }
 }
 
@@ -162,21 +180,19 @@ img {
         border-radius: 0;
         box-sizing: border-box;
         background: transparent;
-        color: #fff;
-        font-size: 50px;
-        font-weight: 300;
-        line-height: 1;
-        padding-top: 0;
-        text-align: center;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 2;
+        font-size: 0;
 
         span {
           display: block;
-          transform: translateY(-4px);
+          width: 20px;
+          height: 20px;
+          border-right: 1px solid rgba(255, 255, 255, 0.75);
+          border-top: 1px solid rgba(255, 255, 255, 0.75);
         }
 
         &:hover {
@@ -186,6 +202,16 @@ img {
 
       .design-modal-prev {
         border-right: 1px solid #fff;
+
+        span {
+          transform: rotate(-135deg);
+        }
+      }
+
+      .design-modal-next {
+        span {
+          transform: rotate(45deg);
+        }
       }
 
       &:not(.is-landscape):not(.is-square) {
@@ -234,10 +260,12 @@ img {
         font-size: 30px;
         margin-bottom: 10px;
         text-align: left;
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+        font-weight: normal;
       }
 
       #modalTitle {
-        margin-bottom: 30px;
+        margin-bottom: 55px;
       }
 
       .modal-meta {

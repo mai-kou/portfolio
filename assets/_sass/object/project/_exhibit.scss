@@ -73,25 +73,43 @@
   color: #fff;
   border: 1px solid #fff;
   margin: 5% auto;
-  padding: 40px;
-  width: 80%;
-  max-width: 900px;
+  padding: 70px;
+  width: 80vw;
+  max-width: 80vw;
   position: relative;
   border-radius: 0;
 }
 
 .exhibition-modal-close {
-  color: #ccc;
   position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 35px;
-  font-weight: bold;
+  right: 24px;
+  top: 20px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
-  
-  &:hover,
-  &:focus {
-    color: #fff;
+  font-size: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover {
+    opacity: 0.5;
   }
 }
 
@@ -101,22 +119,36 @@
     
     h1 {
       font-size: 30px;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-weight: normal;
     }
     
-    .date, .place {
-      font-size: 18px;
-      margin-bottom: 5px;
+    .exhibit-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 2px solid #fff;
+      padding-left: 15px;
+      margin-top: 0;
+      width: 100%;
+
+      .date, .place {
+        margin: 0;
+        font-size: 14px;
+        color: #ccc;
+        font-weight: bold;
+      }
     }
     
     p {
       font-size: 14px;
       line-height: 1.8;
-      margin-top: 15px;
+      margin-top: 30px;
     }
     
     button {
-      margin-top: 20px;
+      margin-top: 30px;
       padding: 12px 24px;
       border: 2px solid black;
       background-color: white;
@@ -136,63 +168,23 @@
       max-width: 100%;
       height: 400px;
     }
+
+    .exhibit-modal-img {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 100%;
+      margin-top: 30px;
+
+      img {
+        flex: 0 0 calc(50% - 15px); 
+        min-width: 0;
+        max-width: 100%;
+        height: auto;
+      }
+    }
   }
 }
 
-// .butterflyeffect {
-//   display: flex;
-//   gap: 4%;
 
-//   .exhibition {
-//     flex: 1;
-//     img {
-//       width: 100%;
-//       height: auto;
-//     } 
-//   }
-
-//   .exhibition-detail {
-//     flex: 2;
-
-//     h1 {
-//       font-size: 45px;
-//       font-weight: normal;
-//       margin-bottom: 10px;
-//       line-height: 1;
-//     }
-
-//     .date, .place {
-//       font-size: 20px;
-//       line-height: 1.5;
-//       margin-top: 0;
-//     }
-
-//     p {
-//       font-size: 14px;
-//       line-height: 2;
-//       margin-top: 10px;
-//     }
-
-//     button {
-//       margin-top: 20px;
-//       padding: 12px;
-//       width: 100%;
-//       max-width: 100%;
-//       border: 2px solid black;
-//       background-color: white;
-//       border-radius: 5px;
-//       margin-bottom: 20px;
-
-//       a {
-//         color: black;
-//         font-size: 16px;
-//       }
-//     }
-
-//     iframe {
-//       margin-top: 20px;
-//       width: 100%;
-//       max-width: 100%;
-//       height: 315px;
-//     }
-//   }
